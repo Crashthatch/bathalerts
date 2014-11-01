@@ -9,28 +9,14 @@ body {
 body {
 	background-image: url('library/images/bath-bg.jpg');
 	background-position: contain;
+	background-attachment: fixed;
 	background-repeat: no-repeat;
 	font-size: 18px;
+	color: $grey;
 }
 
 * { 
-	-webkit-box-sizing: border-box; 
-	-moz-box-sizing:    border-box; 
-	box-sizing:         border-box; 
-}
-
-.wrap {
-	width: 1140px;
-	margin: 0 auto;
-	@extend %clearfix;
-}
-
-.first {
-	float: left;
-}
-
-.last {
-	float: right;
+	box-sizing: border-box; 
 }
 
 h1, h2, h3 {
@@ -50,6 +36,10 @@ h2 {
 }
 
 form {
+
+	&.last {
+		float: right;
+	}
 
 	input[type="text"],
 	input[type="email"] {
@@ -178,6 +168,63 @@ body.report {
 
 	// The Map
 	#map {
-		height: 400px;
+		height: 450px;
+	}
+
+	// Lists
+	#list-section {
+		background: #f7f7f7;
+		padding-bottom: 40px;
+
+		h3 {
+			margin-top: 0;
+			padding: 30px 0 15px;
+			color: $grey;
+		}
+
+		input[type="checkbox"] {
+			display: inline;
+			float: left;
+			margin: 7px 10px 0 0;
+
+			& + label {
+				display: inline-block;
+				font-weight: bold;
+				font-size: 25px;
+				margin: 0 0 40px 0;
+				text-shadow: 0 1px $text;
+				color: $grey;
+				margin: 0 0 20px 0;
+			}
+		}
+
+		ul {
+			margin: 0 0 0 0;
+			padding: 0 0 0 20px;
+
+			li {
+				list-style-type: none;
+				padding-left: 10px;
+
+				&:before {
+					font-family: "FontAwesome";
+					display: inline-block;
+					margin-left: -27px;
+					width: 27px;
+				}
+			}
+		}
+
+		#planning-applications ul li:before {
+			content: "\f15c";
+		}
+
+		#crimes ul li:before {
+			content: "\f0e3";
+		}
+
+		#house-sales ul li:before {
+			content: "\f154";
+		}
 	}
 }
