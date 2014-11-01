@@ -1,5 +1,6 @@
 <?php
 
+include "database.php";
 include "Modules/Module.php";
 include "Modules/Crime.php";
 include "Modules/PlanningApplication.php";
@@ -18,9 +19,13 @@ $pc = "";
 if(isset($_GET['pc'])) {
     $pc = strtoupper($_GET['pc']);
 }
-//See if this is a postcode we know about and can geo code.
-if( !Module::postcodeExists($pc) ){
-    header( 'Location: index.php?error='.urlencode('That\'s not a BANES Postcode we know about!') ) ;
+else {
+    header( 'Location: index.php?noPostcode=1' ) ;
+}
+
+// See if this is a postcode we know about and can geo code.
+if ( !Module::postcodeExists($pc) ){
+    header( 'Location: index.php?unknownPostcode=1' ) ;
 }
 
 $pa = new PlanningApplication($pc);

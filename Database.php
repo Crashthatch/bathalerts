@@ -1,8 +1,8 @@
 <?php
 
-define("DB_HOST", "127.0.0.1");
-define("DB_USER", "root");
-define("DB_PASS", "admin");
+define("DB_HOST", "localhost");
+define("DB_USER", "bathalert_user");
+define("DB_PASS", "LAp7kWEaQv");
 define("DB_SCHE", "bathalerts");
 
 $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_SCHE);
