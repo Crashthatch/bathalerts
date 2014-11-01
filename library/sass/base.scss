@@ -51,7 +51,6 @@ h2 {
 
 form {
 
-	// Postcode Field
 	input[type="text"],
 	input[type="email"] {
 		background: $white;
@@ -62,6 +61,14 @@ form {
 		box-shadow: 1px 1px 2px $text;
 		outline: none;
 
+		&:focus {
+			&::-webkit-input-placeholder {
+				   color: transparent;
+			}
+		}
+	}
+
+	input[type="text"] {
 		&:focus {
 			text-transform: uppercase;
 
