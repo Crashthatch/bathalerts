@@ -23,7 +23,6 @@ abstract class Module {
                 // Error
             } 
             fclose($handle);
-
             self::$postCodeLoc = $this->getPostCodeLocation($postCode);
         } 
 
