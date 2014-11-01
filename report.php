@@ -33,6 +33,8 @@ if ( !Module::postcodeExists($pc) ){
     header( 'Location: index.php?unknownPostcode=1' ) ;
 }
 
+$searchedForPostcodeLocation = Module::getPostCodeLocation($pc);
+
 $pa = new PlanningApplication($pc);
 $planningData = $pa->getData();
 $crimeGetter = new Crime($pc);
@@ -74,6 +76,8 @@ include('header.php');
                     var crimeData = <?php echo json_encode($crimeData); ?>;
                     var planningData = <?php echo json_encode($planningData); ?>;
                     var houseData = <?php echo json_encode($houseData); ?>;
+
+                    var searchedForPostcode = <?php echo json_encode($searchedForPostcodeLocation); ?>;
                 </script>
 
                 <div id="map"></div>

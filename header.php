@@ -10,11 +10,13 @@
 
 		<!-- CSS -->
 		<link rel="stylesheet" type="text/css" href="style.css">
-		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css">
+		<link rel="stylesheet"                 href="bower_components/leaflet.awesome-markers/dist/leaflet.awesome-markers.css">
 
 		<!-- JS -->
 		<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+        <script src="bower_components/leaflet.awesome-markers/dist/leaflet.awesome-markers.min.js"></script>
 
         <?php if (isset($pc)) { ?>
         	<title>BathAlerts for <?php echo $pc; ?></title>
