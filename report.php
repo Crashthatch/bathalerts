@@ -64,7 +64,7 @@ include('header.php');
             </div>
         </header>
 
-        <section>
+        <section id="map-section">
             <div class="wrap">
                 <h3>Showing information local to <span><?php echo $pc; ?></span><a href="/">Change</a></h3>
             </div>
@@ -82,6 +82,36 @@ include('header.php');
                 <div id="map"></div>
                 <script src="/library/js/map.js"></script>
             <?php } else {} ?>
+        </section>
+
+        <section id="list-section">
+            <div class="wrap">
+                <h3>Customise your monthly email alerts by ticking the sections on or off below.</h3>
+
+                <div id="planning-applications" class="fourcol first">
+                    <input type="checkbox" name="planning-applications" checked><label for="planning-applications">Planning Applications</label>
+
+                    <ul>
+                        <li>CaseDate - BanesStatus<br />LocationText<br />CaseText</li>
+                    </ul>
+                </div>
+
+                <div id="crimes" class="fourcol">
+                    <input type="checkbox" name="crimes" checked> <label for="crimes">Crimes</label>
+
+                    <ul>
+                        <li>Crime Category<br />Street Name</li>
+                    </ul>
+                </div>
+
+                <div id="house-sales" class="fourcol last">
+                    <input type="checkbox" name="house-sales" checked> <label for="house-sales">House Sales</label>
+
+                    <ul>
+                        <li>Date of Transfer - Price<br />Address</li>
+                    </ul>
+                </div>
+            </div>
         </section>
 
         <footer></footer>
