@@ -1,5 +1,6 @@
 <?php
 
+include "database.php";
 include "Modules/Module.php";
 include "Modules/Crime.php";
 include "Modules/PlanningApplication.php";
@@ -42,8 +43,8 @@ include('header.php');
                 <h2>Get monthly email alerts about things near you</h2>
 
                 <form method="post">
-                    <input type="email" name="email">
-                    <input type="text" name="postcode" placeholder="<?php echo $pc; ?>" id="pc-hidden">
+                    <input type="email" name="email" />
+                    <input type="text" name="postcode" value="<?php echo $pc; ?>" id="pc-hidden" />
                     <button type="submit" class="btn btn-success">
                         <i class="fa fa-envelope-o"></i>
                     </button>
