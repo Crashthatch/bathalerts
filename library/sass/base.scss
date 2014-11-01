@@ -1,11 +1,7 @@
 html, 
-body, 
-#map {
-    height: 100%;
-}
-
-html, 
 body {
+	height: 100%;
+	min-height: 100%;
 	margin: 0 0 0 0;
 	padding: 0 0 0 0;
 }
@@ -20,6 +16,10 @@ body {
 .wrap {
 	width: 1140px;
 	margin: 0 auto;
+}
+
+h1, h2, h3 {
+	color: $white;
 }
 
 h1 {
@@ -41,7 +41,6 @@ body.home {
 	header {
 		margin-top: 40px;
 		text-align: center;
-		color: $white;
 	}
 
 	section {
@@ -97,5 +96,41 @@ body.home {
 				}
 			}
 		}
+	}
+}
+
+// Report / Dashboard
+body.report {
+	header {
+		background: rgba($white, 0.3);
+		padding: 10px;
+
+		h2 {
+			margin-bottom: 0;
+		}
+	}
+
+	// Details about the current postcode
+	section {
+		h3 {
+			font-size: 19px;
+			
+			a {
+				font-size: 65%;
+				padding-left: 15px;
+				vertical-align: middle;
+				text-decoration: none;
+				color: darken($blue, 10%);
+
+				&:hover {
+					color: $white;
+				}
+			}
+		}
+	}
+
+	// The Map
+	#map {
+		height: 50%;
 	}
 }

@@ -23,11 +23,6 @@
         else { ?>
         	<title>BathAlerts for <?php echo $pc; ?></title>
         <?php } ?>
-        
-        <script type="application/javascript">
-            var crimeData = <?php echo json_encode($crimeData); ?>;
-            var planningData = <?php echo json_encode($planningData); ?>;
-        </script>
 
         <!-- INSERT Google Analytics -->
     </head>
