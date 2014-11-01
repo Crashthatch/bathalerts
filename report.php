@@ -24,7 +24,7 @@ $pc = "";
 if(isset($_GET['pc'])) {
     $pc = strtoupper($_GET['pc']);
 } else {
-    header( 'Location: index.php?noPostcode=1' ) ;
+    header( 'Location: /index.php?noPostcode=1' ) ;
 }
 
 // See if this is a postcode we know about and can geo code.
