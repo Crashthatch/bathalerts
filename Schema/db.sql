@@ -11,6 +11,9 @@ DROP TABLE IF EXISTS `bathalerts`.`Users`;
 CREATE TABLE IF NOT EXISTS `bathalerts`.`Users` (
   `Email` VARCHAR(100) NOT NULL,
   `PostCode` VARCHAR(7) NOT NULL,
+  `Crime` TINYINT(1) NOT NULL,
+  `Planning` TINYINT(1) NOT NULL,
+  `Houses` TINYINT(1) NOT NULL,
   PRIMARY KEY (`Email`, `PostCode`))
 ENGINE = InnoDB;
 

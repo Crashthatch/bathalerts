@@ -1,6 +1,6 @@
 <?php
 
-include "database.php";
+include "Database.php";
 include "Modules/Module.php";
 include "Modules/Crime.php";
 include "Modules/PlanningApplication.php";
@@ -8,10 +8,15 @@ include "Modules/HousePrice.php";
 
 // Checking email form
 $emailAdded = false;
-if(isset($_POST['email']) && isset($_POST['postcode'])) {
+if(isset($_POST['email']) && isset($_POST['postcode']) && isset($_POST['crime']) && isset($_POST['planning']) && isset($_POST['houses'])) {
     $email = $conn->real_escape_string($_POST['email']);
     $postcode = $conn->real_escape_string($_POST['postcode']);
-    $conn->query("INSERT IGNORE INTO Users (`Email`, `PostCode`) VALUES ('$email', '$postcode')");
+    
+    $houses = ($_POST['crime'] == 'Yes' ? "TRUE", "FALSE");
+    $crime = ($_POST['crime'] == 'Yes' ? "TRUE", "FALSE");
+    $planning = ($_POST['planning'] == 'Yes' ? "TRUE", "FALSE");
+    
+    $conn->query("INSERT IGNORE INTO Users (`Email`, `PostCode`, `Crime`, `Planning`, `Houses`) VALUES ('$email', '$postcode', $crime, $planning, $houses)");
     $emailAdded = true;
 }
 
@@ -49,8 +54,8 @@ include('header.php');
                 </div>
 
                 <form method="post" class="last">
-                    <input type="email" name="email" placeholder="Sign-up for email alerts">
-                    <input type="text" name="postcode" id="pc-hidden" placeholder="<?php echo $pc; ?>">
+                    <input type="email" name="email" placeholder="Sign-up for email alerts" />
+                    <input type="text" name="postcode" id="pc-hidden" value="<?php echo $pc; ?>" />
                     <button type="submit" class="btn btn-success">
                         <i class="fa fa-envelope-o"></i>
                     </button>
