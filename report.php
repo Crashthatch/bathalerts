@@ -5,8 +5,16 @@ include "Modules/Crime.php";
 include "Modules/PlanningApplication.php";
 include "Modules/HousePrice.php";
 
-$pc = "";
+// Checking email form
+$emailAdded = false;
+if(isset($_POST['email']) && isset($_POST['postcode'])) {
+    $email = $conn->real_escape_string($_POST['email']);
+    $postcode = $conn->real_escape_string($_POST['postcode']);
+    $conn->query("INSERT IGNORE INTO Users (`Email`, `PostCode`) VALUES ('$email', '$postcode')");
+    $emailAdded = true;
+}
 
+$pc = "";
 if(isset($_GET['pc'])) {
     $pc = $_GET['pc'];
 }
@@ -38,6 +46,7 @@ include('header.php');
 
             <?php if ($pc) { ?>
                 <script type="application/javascript">
+                    var emailAdded = <?php echo ($emailAdded ? "true" : "false") ?>;
                     var crimeData = <?php echo json_encode($crimeData); ?>;
                     var planningData = <?php echo json_encode($planningData); ?>;
                     var houseData = <?php echo json_encode($houseData); ?>;
