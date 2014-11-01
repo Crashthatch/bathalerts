@@ -7,25 +7,36 @@ abstract class Module {
     protected static $postCode;
     protected static $postCodeLoc;
     private $tkn = "";
-    
+
+    static function initPostcodeList()
+    {
+        $handle = fopen("Postcodes.csv", "r");
+        if ($handle) {
+            while (($line = fgets($handle)) !== false) {
+                $fields = explode(",", $line);
+                $pc = str_replace(" ", "", $fields[0]);
+                self::$postCodes[strtoupper($pc)] =
+                    array(trim($fields[5]), trim($fields[6]));
+            }
+        } else {
+            // Error
+        }
+        fclose($handle);
+    }
+
     function __construct($postCode) {
         self::$postCode = $postCode;
         // Load post code locations for the BANES area
-        if(!self::$postCodes) {
-            $handle = fopen("Postcodes.csv", "r");
-            if ($handle) {
-                while (($line = fgets($handle)) !== false) {
-                    $fields = explode(",", $line);
-                    $pc = str_replace(" ", "", $fields[0]);
-                    self::$postCodes[strtoupper($pc)] = 
-                        array(trim($fields[5]), trim($fields[6]));                 
-                }
-            } else {
-                // Error
-            } 
-            fclose($handle);
-            self::$postCodeLoc = $this->getPostCodeLocation($postCode);
-        } 
+        self::$postCodeLoc = $this->getPostCodeLocation($postCode);
+    }
+
+    static function postcodeExists($pc){
+        if( self::getPostCodeLocation($pc) !== false ){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     function fetch() {
@@ -41,7 +52,7 @@ abstract class Module {
         return file_get_contents($this->url, false, $c);
     }
 
-    function getPostCodeLocation($pc) {
+    static function getPostCodeLocation($pc) {
         $pc = strtoupper(str_replace(" ", "", $pc));
         return (isset(self::$postCodes[$pc]) ? self::$postCodes[$pc] : false);
     }
@@ -67,5 +78,7 @@ abstract class Module {
         }
     }
 }
+
+Module::initPostcodeList();
 
 ?>

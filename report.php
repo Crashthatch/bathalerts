@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 include "Modules/Module.php";
 include "Modules/Crime.php";
@@ -16,7 +16,11 @@ if(isset($_POST['email']) && isset($_POST['postcode'])) {
 
 $pc = "";
 if(isset($_GET['pc'])) {
-    $pc = $_GET['pc'];
+    $pc = strtoupper($_GET['pc']);
+}
+//See if this is a postcode we know about and can geo code.
+if( !Module::postcodeExists($pc) ){
+    header( 'Location: index.php?error='.urlencode('That\'s not a BANES Postcode we know about!') ) ;
 }
 
 $pa = new PlanningApplication($pc);
