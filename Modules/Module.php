@@ -10,15 +10,14 @@ abstract class Module {
     
     function __construct($postCode) {
         self::$postCode = $postCode;
-        
         // Load post code locations for the BANES area
         if(!self::$postCodes) {
             $handle = fopen("Postcodes.csv", "r");
             if ($handle) {
                 while (($line = fgets($handle)) !== false) {
                     $fields = explode(",", $line);
-                    $postCode = str_replace(" ", "", $fields[0]);
-                    self::$postCodes[$postCode] = array($fields[5], $fields[6]);                 
+                    $pc = str_replace(" ", "", $fields[0]);
+                    self::$postCodes[strtoupper($pc)] = array($fields[5], $fields[6]);                 
                 }
             } else {
                 // Error
@@ -42,8 +41,29 @@ abstract class Module {
     }
 
     function getPostCodeLocation($pc) {
-        $pc = str_replace(" ", "", $pc);
+        $pc = strtoupper(str_replace(" ", "", $pc));
         return (isset(self::$postCodes[$pc]) ? self::$postCodes[$pc] : false);
+    }
+
+    // Calculate distance between coordinates
+    function distance($lat1, $lon1, $lat2, $lon2, $unit) {
+        $lat1 = floatval($lat1);
+        $lon1 = floatval($lon1);
+        $lat2 = floatval($lat2);
+        $lon2 = floatval($lon2);
+        $theta = $lon1 - $lon2;
+        $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
+        $dist = acos($dist);
+        $dist = rad2deg($dist);
+        $miles = $dist * 60 * 1.1515;
+        $unit = strtoupper($unit);
+        if ($unit == "K") {
+            return ($miles * 1.609344);
+        } else if ($unit == "N") {
+            return ($miles * 0.8684);
+        } else {
+            return $miles;
+        }
     }
 }
 
