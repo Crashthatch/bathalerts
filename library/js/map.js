@@ -48,7 +48,6 @@ $.each(houseData, function(i, feature) {
     layersOnMap.push(propertyLayer);
 });
 
-L.marker([feature.location.latitude, feature.location.longitude], {icon: postcodeIcon}).bindPopup('Your Postcode').addTo(map);
 
     var map = L.map('map', {
         layers: layersOnMap
@@ -65,7 +64,7 @@ L.marker([feature.location.latitude, feature.location.longitude], {icon: postcod
     };
 
     L.control.layers(baseLayers, overlays).addTo(map);
-
+var postcodeMarker = L.marker([searchedForPostcode[1],searchedForPostcode[0]], {icon: postcodeIcon}).bindPopup('Your Postcode').addTo(map);
     var highlight = L.geoJson(null).addTo(map);
     map.fitBounds(bounds);
 
