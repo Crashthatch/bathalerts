@@ -3,25 +3,24 @@
 class Crime extends Module {
 
     public $url = "https://data.bathhacked.org/resource/e46f-mhfs.json";
-    public $pc  = "";
 
     
     function __construct($postcode) {
-        $this->postcode = $postcode;
+        parent::__construct($postcode);
 
-        //TODO: Get lat / long for postcode.
-        $postcodelat = $this->postCodeLoc[0];
-        $postcodelat = $this->postCodeLoc[1];
+        $postcodelat = self::$postCodeLoc[0];
+        $postcodelong = self::$postCodeLoc[1];
 
-        $this->url .= '?$where=within_circle(location,'.$postcodelat.','.$postcodelong.',100)';
+        $this->url .= '?$where=within_circle(location,'.$postcodelong.','.$postcodelat.',1000)';
     }
     
     function getData() {
 
         $crimes = json_decode($this->fetch(), true);
-        foreach($crimes as $crime) {
+        /*foreach($crimes as $crime) {
             var_dump($crime);
-        }
+        }*/
+        return $crimes;
     }
     
 }
