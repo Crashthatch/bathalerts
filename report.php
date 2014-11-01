@@ -22,20 +22,32 @@ include('header.php');
 
 ?>
 
-    <body>
-        <?php if ($pc) { ?>
-            <div id="map"></div>
-            <script type="application/javascript">
-	            var crimeData = <?php echo json_encode($crimeData); ?>;
-	            var planningData = <?php echo json_encode($planningData); ?>;
-	            var houseData = <?php echo json_encode($houseData); ?>;
-	        </script>
+    <body class="report">
 
-            <script src="library/js/map.js"></script>
-            
-            <!-- If the post code is defined show data -->
-        <?php } else { ?>
-            <!-- Redirect to initial page -->
-        <?php } ?>
+        <header>
+            <div class="wrap">
+                <h1>BathAlerts</h1>
+                <h2>Get monthly email alerts about things near you</h2>
+            </div>
+        </header>
+
+        <section>
+            <div class="wrap">
+                <h3>Showing information local to BA1 5EB<a href="/">Change</a></h3>
+            </div>
+
+            <?php if ($pc) { ?>
+                <script type="application/javascript">
+                    var crimeData = <?php echo json_encode($crimeData); ?>;
+                    var planningData = <?php echo json_encode($planningData); ?>;
+                    var houseData = <?php echo json_encode($houseData); ?>;
+                </script>
+
+                <script src="library/js/map.js"></script>
+                <div id="map"></div>
+            <?php } else {} ?>
+        </section>
+
+        <footer></footer>
     </body>
 </html>
