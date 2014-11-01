@@ -2,7 +2,25 @@
 
 abstract class Module {
 
+    protected static $postCodes = false;
     private $tkn = "";
+    
+    function __construct() {
+        // Load post code locations for the BANES area
+        if(!self::$postCodes) {
+            $handle = fopen("Postcodes.csv", "r");
+            if ($handle) {
+                while (($line = fgets($handle)) !== false) {
+                    $fields = explode(",", $line);
+                    $postCode = str_replace(" ", "", $fields[0]);
+                    self::$postCodes[$postCode] = array($fields[5], $fields[6]);                 
+                }
+            } else {
+                // Error
+            } 
+            fclose($handle);
+        }
+    }
 
     function fetch() {
         $opts = array(
