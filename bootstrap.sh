@@ -26,6 +26,9 @@ echo '<VirtualHost *:80>
 sudo a2dissite 000-default
 sudo a2ensite 001-bathalerts
 
+echo '
+display_errors = On
+' >> /etc/php5/apache2/php.ini
 
 sudo service apache2 restart;
 
