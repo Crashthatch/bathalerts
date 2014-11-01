@@ -42,9 +42,8 @@ include('header.php');
                     var planningData = <?php echo json_encode($planningData); ?>;
                     var houseData = <?php echo json_encode($houseData); ?>;
                 </script>
-
-                <script src="library/js/map.js"></script>
                 <div id="map"></div>
+                <script src="library/js/map.js"></script>
             <?php } else {} ?>
         </section>
 
