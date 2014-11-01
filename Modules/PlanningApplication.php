@@ -8,7 +8,7 @@ class PlanningApplication extends Module {
     //    parent::__construct($postCode);
     //    $this->postCode = $postCode;
     //}
-    
+
     function getData() {
         $aps = json_decode($this->fetch());
         foreach($aps as $ap) {
