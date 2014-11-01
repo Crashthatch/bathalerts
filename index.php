@@ -13,6 +13,14 @@
 	    			<button type="submit" class="btn btn-success">
 	                	<i class="fa fa-arrow-right"></i>
 		            </button>
+
+		            <?php 
+		            	$url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+
+						if (strstr( $url, 'unknownPostcode=1' )) {
+						   echo '<p class="alert-box fail">Sorry, that\'s not a B&amp;NES postcode that we reocgnise.</p>'; 
+						}
+					?>
 	    		</form>
 	    	</section>
 

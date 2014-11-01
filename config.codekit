@@ -500,6 +500,193 @@
 		"shouldRunBless": 0,
 		"useLibsass": 0
 		},
+	"\/bower_components\/Leaflet.awesome-markers\/dist\/images\/markers-matte.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 14323,
+		"inputAbbreviatedPath": "\/bower_components\/Leaflet.awesome-markers\/dist\/images\/markers-matte.png",
+		"outputAbbreviatedPath": "\/bower_components\/Leaflet.awesome-markers\/dist\/images\/markers-matte.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/bower_components\/Leaflet.awesome-markers\/dist\/images\/markers-matte@2x.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 31113,
+		"inputAbbreviatedPath": "\/bower_components\/Leaflet.awesome-markers\/dist\/images\/markers-matte@2x.png",
+		"outputAbbreviatedPath": "\/bower_components\/Leaflet.awesome-markers\/dist\/images\/markers-matte@2x.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/bower_components\/Leaflet.awesome-markers\/dist\/images\/markers-plain.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 7946,
+		"inputAbbreviatedPath": "\/bower_components\/Leaflet.awesome-markers\/dist\/images\/markers-plain.png",
+		"outputAbbreviatedPath": "\/bower_components\/Leaflet.awesome-markers\/dist\/images\/markers-plain.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/bower_components\/Leaflet.awesome-markers\/dist\/images\/markers-shadow.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 535,
+		"inputAbbreviatedPath": "\/bower_components\/Leaflet.awesome-markers\/dist\/images\/markers-shadow.png",
+		"outputAbbreviatedPath": "\/bower_components\/Leaflet.awesome-markers\/dist\/images\/markers-shadow.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/bower_components\/Leaflet.awesome-markers\/dist\/images\/markers-shadow@2x.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1469,
+		"inputAbbreviatedPath": "\/bower_components\/Leaflet.awesome-markers\/dist\/images\/markers-shadow@2x.png",
+		"outputAbbreviatedPath": "\/bower_components\/Leaflet.awesome-markers\/dist\/images\/markers-shadow@2x.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/bower_components\/Leaflet.awesome-markers\/dist\/images\/markers-soft.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 41226,
+		"inputAbbreviatedPath": "\/bower_components\/Leaflet.awesome-markers\/dist\/images\/markers-soft.png",
+		"outputAbbreviatedPath": "\/bower_components\/Leaflet.awesome-markers\/dist\/images\/markers-soft.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/bower_components\/Leaflet.awesome-markers\/dist\/images\/markers-soft@2x.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 66408,
+		"inputAbbreviatedPath": "\/bower_components\/Leaflet.awesome-markers\/dist\/images\/markers-soft@2x.png",
+		"outputAbbreviatedPath": "\/bower_components\/Leaflet.awesome-markers\/dist\/images\/markers-soft@2x.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/bower_components\/Leaflet.awesome-markers\/dist\/leaflet.awesome-markers.css": {
+		"fileType": 16,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/Leaflet.awesome-markers\/dist\/leaflet.awesome-markers.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/Leaflet.awesome-markers\/dist\/leaflet.awesome-markers.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/Leaflet.awesome-markers\/dist\/leaflet.awesome-markers.js",
+		"outputAbbreviatedPath": "\/bower_components\/Leaflet.awesome-markers\/dist\/min\/leaflet.awesome-markers-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/Leaflet.awesome-markers\/dist\/leaflet.awesome-markers.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/Leaflet.awesome-markers\/dist\/leaflet.awesome-markers.min.js",
+		"outputAbbreviatedPath": "\/bower_components\/Leaflet.awesome-markers\/dist\/min\/leaflet.awesome-markers.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/Leaflet.awesome-markers\/examples\/basic-example.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/Leaflet.awesome-markers\/examples\/basic-example.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/Leaflet.awesome-markers\/examples\/css\/font-awesome-ie7.min.css": {
+		"fileType": 16,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/Leaflet.awesome-markers\/examples\/css\/font-awesome-ie7.min.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/Leaflet.awesome-markers\/examples\/css\/font-awesome.min.css": {
+		"fileType": 16,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/Leaflet.awesome-markers\/examples\/css\/font-awesome.min.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/Leaflet.awesome-markers\/examples\/random-markers.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/Leaflet.awesome-markers\/examples\/random-markers.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/Leaflet.awesome-markers\/examples\/with-bootstrap.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/Leaflet.awesome-markers\/examples\/with-bootstrap.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/Leaflet.awesome-markers\/README.md": {
+		"enableFootnoteSupport": 0,
+		"enableSmartyPants": 1,
+		"expandTabs": 1,
+		"fileType": 4096,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/Leaflet.awesome-markers\/README.md",
+		"outputAbbreviatedPath": "\/bower_components\/Leaflet.awesome-markers\/README.html",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/Leaflet.awesome-markers\/screenshots\/screenshot-matte.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 197696,
+		"inputAbbreviatedPath": "\/bower_components\/Leaflet.awesome-markers\/screenshots\/screenshot-matte.png",
+		"outputAbbreviatedPath": "\/bower_components\/Leaflet.awesome-markers\/screenshots\/screenshot-matte.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/bower_components\/Leaflet.awesome-markers\/screenshots\/screenshot-soft.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 218197,
+		"inputAbbreviatedPath": "\/bower_components\/Leaflet.awesome-markers\/screenshots\/screenshot-soft.png",
+		"outputAbbreviatedPath": "\/bower_components\/Leaflet.awesome-markers\/screenshots\/screenshot-soft.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/bower_components\/normalize-scss\/_normalize.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
@@ -567,15 +754,6 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/header.php": {
-		"fileType": 8192,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/header.php",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
 	"\/index.php": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -607,22 +785,6 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/library\/sass\/base.scss": {
-		"createSourceMap": 0,
-		"debugStyle": 0,
-		"decimalPrecision": 10,
-		"fileType": 4,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/library\/sass\/base.scss",
-		"outputAbbreviatedPath": "\/library\/css\/base.css",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
-		"useLibsass": 0
-		},
 	"\/library\/sass\/style.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
@@ -639,22 +801,6 @@
 		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
-	"\/library\/sass\/variables.scss": {
-		"createSourceMap": 0,
-		"debugStyle": 0,
-		"decimalPrecision": 10,
-		"fileType": 4,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/library\/sass\/variables.scss",
-		"outputAbbreviatedPath": "\/library\/css\/variables.css",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
-		"useLibsass": 0
-		},
 	"\/Modules\/Crime.php": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -669,15 +815,6 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/Modules\/HousePrice.php",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
-	"\/Modules\/Module.php": {
-		"fileType": 8192,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/Modules\/Module.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -709,15 +846,6 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/README.md",
 		"outputAbbreviatedPath": "\/README.html",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
-	"\/style.css": {
-		"fileType": 16,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/style.css",
-		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		}
