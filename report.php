@@ -41,10 +41,12 @@ include('header.php');
 
         <header>
             <div class="wrap">
-                <h1>BathAlerts</h1>
-                <h2>Get monthly email alerts about things near you</h2>
+                <div class="first">
+                    <h1>BathAlerts</h1>
+                    <h2>Get monthly email alerts about things near you</h2>
+                </div>
 
-                <form method="post">
+                <form method="post" class="last">
                     <input type="email" name="email">
                     <input type="text" name="postcode" placeholder="<?php echo $pc; ?>" id="pc-hidden">
                     <button type="submit" class="btn btn-success">
