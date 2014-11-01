@@ -89,26 +89,35 @@ include('header.php');
                 <h3>Customise your monthly email alerts by ticking the sections on or off below.</h3>
 
                 <div id="planning-applications" class="fourcol first">
-                    <input type="checkbox" name="planning-applications" checked><label for="planning-applications">Planning Applications</label>
+                    <input type="checkbox" name="planning-applications" id="planning-applications_check" checked>
+                    <label for="planning-applications_check">Planning Applications</label>
 
                     <ul>
-                        <li>CaseDate - BanesStatus<br />LocationText<br />CaseText</li>
+                        <?php foreach ($planningData as $plan) {
+                            echo '<li>' . $plan['casedate'] . ' - ' . $plan['banesstatus'] . '<br />' . $plan['locationtext'] . '<br />' . $plan['casetext'] . '</li>';
+                        } ?>
                     </ul>
                 </div>
 
                 <div id="crimes" class="fourcol">
-                    <input type="checkbox" name="crimes" checked> <label for="crimes">Crimes</label>
+                    <input type="checkbox" name="crimes" id="crimes_check" checked>
+                    <label for="crimes_check">Crimes</label>
 
                     <ul>
-                        <li>Crime Category<br />Street Name</li>
+                        <?php foreach ($crimeData as $crime) {
+                            echo '<li>' . $crime['crime_category'] . '<br />' . $crime['street_name'] . '</li>';
+                        } ?>
                     </ul>
                 </div>
 
                 <div id="house-sales" class="fourcol last">
-                    <input type="checkbox" name="house-sales" checked> <label for="house-sales">House Sales</label>
+                    <input type="checkbox" name="house-sales" id="house-sales_check" checked>
+                    <label for="house-sales_check">House Sales</label>
 
                     <ul>
-                        <li>Date of Transfer - Price<br />Address</li>
+                        <?php foreach ($houseData as $houses) {
+                            echo '<li>' . $houses['date_of_transfer'] . ' - £' . $houses['price'] . '<br />' . $houses['secondary_addressable_object_name'] . ', ' . $houses['locality'] . ', ' . $houses['district'] . ', ' . $houses['postcode'] . '</li>';
+                        } ?>
                     </ul>
                 </div>
             </div>
