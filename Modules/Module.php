@@ -17,7 +17,8 @@ abstract class Module {
                 while (($line = fgets($handle)) !== false) {
                     $fields = explode(",", $line);
                     $pc = str_replace(" ", "", $fields[0]);
-                    self::$postCodes[strtoupper($pc)] = array($fields[5], $fields[6]);                 
+                    self::$postCodes[strtoupper($pc)] = 
+                        array(trim($fields[5]), trim($fields[6]));                 
                 }
             } else {
                 // Error
@@ -25,7 +26,6 @@ abstract class Module {
             fclose($handle);
             self::$postCodeLoc = $this->getPostCodeLocation($postCode);
         } 
-
     }
 
     function fetch() {
