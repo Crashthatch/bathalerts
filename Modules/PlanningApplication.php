@@ -26,10 +26,11 @@ class PlanningApplication extends Module {
                     // Add only planning applications in our area
                     if($distance < self::MAX_DISTANCE) {
                         $relevant[] = array(
-                            'casedate'     => $ap->casedate,
-                            'casetext'     => $ap->casetext,
-                            'locationtext' => $ap->locationtext,
-                            'banesstatus'  => $ap->banesstatus
+                            'casedate'      => $ap->casedate,
+                            'casetext'      => $ap->casetext,
+                            'locationtext'  => $ap->locationtext,
+                            'banesstatus'   => $ap->banesstatus,
+                            'casereference' => $ap->casereference
                         );
                     }
                 }
