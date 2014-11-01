@@ -11,7 +11,7 @@
 
 		<link rel="stylesheet" type="text/css" href="style.css">
 
-        <title>Bath Alerts - POST CODE</title>
+        <title>Bath Alerts</title>
 
         <!-- INSERT Google Analytics -->
     </head>
