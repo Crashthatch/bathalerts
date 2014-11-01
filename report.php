@@ -12,9 +12,9 @@ if(isset($_POST['email']) && isset($_POST['postcode']) && isset($_POST['crime'])
     $email = $conn->real_escape_string($_POST['email']);
     $postcode = $conn->real_escape_string($_POST['postcode']);
     
-    $houses = ($_POST['crime'] == 'Yes' ? "TRUE", "FALSE");
-    $crime = ($_POST['crime'] == 'Yes' ? "TRUE", "FALSE");
-    $planning = ($_POST['planning'] == 'Yes' ? "TRUE", "FALSE");
+    $houses = ($_POST['crime'] == 'Yes' ? "TRUE" : "FALSE");
+    $crime = ($_POST['crime'] == 'Yes' ? "TRUE" : "FALSE");
+    $planning = ($_POST['planning'] == 'Yes' ? "TRUE" : "FALSE");
     
     $conn->query("INSERT IGNORE INTO Users (`Email`, `PostCode`, `Crime`, `Planning`, `Houses`) VALUES ('$email', '$postcode', $crime, $planning, $houses)");
     $emailAdded = true;
