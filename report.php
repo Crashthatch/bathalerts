@@ -93,7 +93,9 @@ include('header.php');
                     <label for="planning-applications_check">Planning Applications</label>
 
                     <ul>
-                        <li>CaseDate - BanesStatus<br />LocationText<br />CaseText</li>
+                        <?php foreach ($planningData as $plan) {
+                            echo '<li>' . $plan['casedate'] . ' - ' . $plan['banesstatus'] . '<br />' . $plan['locationtext'] . '<br />' . $plan['casetext'] . '</li>';
+                        } ?>
                     </ul>
                 </div>
 
@@ -102,7 +104,9 @@ include('header.php');
                     <label for="crimes_check">Crimes</label>
 
                     <ul>
-                        <li>Crime Category<br />Street Name</li>
+                        <?php foreach ($crimeData as $crime) {
+                            echo '<li>' . $crime['crime_category'] . '<br />' . $crime['street_name'] . '</li>';
+                        } ?>
                     </ul>
                 </div>
 
@@ -111,7 +115,9 @@ include('header.php');
                     <label for="house-sales_check">House Sales</label>
 
                     <ul>
-                        <li>Date of Transfer - Price<br />Address</li>
+                        <?php foreach ($houseData as $houses) {
+                            echo '<li>' . $houses['date_of_transfer'] . ' - £' . $houses['price'] . '<br />' . $houses['secondary_addressable_object_name'] . ', ' . $houses['locality'] . ', ' . $houses['district'] . ', ' . $houses['postcode'] . '</li>';
+                        } ?>
                     </ul>
                 </div>
             </div>
