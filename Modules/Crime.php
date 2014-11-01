@@ -11,7 +11,7 @@ class Crime extends Module {
         $postcodelat = self::$postCodeLoc[0];
         $postcodelong = self::$postCodeLoc[1];
 
-        $this->url .= '?$where=month>%272014-08-01%27%20AND%20month>%272014-11-01%27%20AND%20within_circle(location,'.$postcodelong.','.$postcodelat.',1000)';
+        $this->url .= '?$where=month>%272014-08-01%27%20AND%20month<%272014-11-01%27%20AND%20within_circle(location,'.$postcodelong.','.$postcodelat.',1000)';
     }
     
     function getData() {
