@@ -16,12 +16,12 @@
 		<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 
-        <?php if (!$pc) { ?>
-        	<title>BathAlerts</title>
+        <?php if ($pc) { ?>
+        	<title>BathAlerts for <?php echo $pc; ?></title>
         <?php }
 
         else { ?>
-        	<title>BathAlerts for <?php echo $pc; ?></title>
+        	<title>BathAlerts</title>
         <?php } ?>
 
         <!-- INSERT Google Analytics -->
