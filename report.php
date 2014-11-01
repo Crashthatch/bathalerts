@@ -36,12 +36,20 @@ include('header.php');
             <div class="wrap">
                 <h1>BathAlerts</h1>
                 <h2>Get monthly email alerts about things near you</h2>
+
+                <form method="post">
+                    <input type="email" name="email">
+                    <input type="text" name="postcode" placeholder="<?php echo $pc; ?>" id="pc-hidden">
+                    <button type="submit" class="btn btn-success">
+                        <i class="fa fa-envelope-o"></i>
+                    </button>
+                </form>
             </div>
         </header>
 
         <section>
             <div class="wrap">
-                <h3>Showing information local to BA1 5EB<a href="/">Change</a></h3>
+                <h3>Showing information local to <span><?php echo $pc; ?></span><a href="/">Change</a></h3>
             </div>
 
             <?php if ($pc) { ?>
@@ -52,8 +60,8 @@ include('header.php');
                     var houseData = <?php echo json_encode($houseData); ?>;
                 </script>
 
-                <script src="library/js/map.js"></script>
                 <div id="map"></div>
+                <script src="library/js/map.js"></script>
             <?php } else {} ?>
         </section>
 
