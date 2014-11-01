@@ -1,4 +1,7 @@
-Options +FollowSymLinks  
+#Options +FollowSymLinks  
 RewriteEngine On 
+RewriteBase /
 
-RewriteRule ^report/([^/]*)$ /report.php?pc=$1 [L,QSA]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^report/([^/]*)$ /report.php?pc=$1 [L,NC]

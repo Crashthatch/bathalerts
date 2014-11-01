@@ -29,7 +29,7 @@ if(isset($_GET['pc'])) {
 
 // See if this is a postcode we know about and can geo code.
 if ( !Module::postcodeExists($pc) ){
-    header( 'Location: index.php?unknownPostcode=1' ) ;
+    header( 'Location: /index.php?unknownPostcode=1' ) ;
 }
 
 $searchedForPostcodeLocation = Module::getPostCodeLocation($pc);
@@ -80,7 +80,7 @@ include('header.php');
                 </script>
 
                 <div id="map"></div>
-                <script src="library/js/map.js"></script>
+                <script src="/library/js/map.js"></script>
             <?php } else {} ?>
         </section>
 
