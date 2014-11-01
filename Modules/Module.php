@@ -4,9 +4,13 @@ abstract class Module {
 
     const POSTCODE_REGEX = '/(GIR ?0AA|[A-PR-UWYZ]([0-9]{1,2}|([A-HK-Y][0-9]([0-9ABEHMNPRV-Y])?)|[0-9][A-HJKPS-UW]) ?[0-9][ABD-HJLNP-UW-Z]{2})/';
     protected static $postCodes = false;
+    protected static $postCode;
+    protected static $postCodeLoc;
     private $tkn = "";
     
-    function __construct() {
+    function __construct($postCode) {
+        self::$postCode = $postCode;
+        
         // Load post code locations for the BANES area
         if(!self::$postCodes) {
             $handle = fopen("Postcodes.csv", "r");
@@ -20,7 +24,8 @@ abstract class Module {
                 // Error
             } 
             fclose($handle);
-        }
+        } 
+        self::$postCodeLoc = $this->getPostCodeLocation($postCode);
     }
 
     function fetch() {
