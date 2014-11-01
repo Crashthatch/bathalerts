@@ -3,6 +3,7 @@
 include "Modules/Module.php";
 include "Modules/Crime.php";
 include "Modules/PlanningApplication.php";
+include "Modules/HousePrice.php";
 
 $pc = "";
 if(isset($_GET['pc'])) {
@@ -12,6 +13,8 @@ $pa = new PlanningApplication($pc);
 $planningData = $pa->getData();
 $crimeGetter = new Crime($pc);
 $crimeData = $crimeGetter->getData();
+$hd = new HousePrice($pc);
+$houseData = $hd->getData();
 
 ?>
 <!DOCTYPE html>
@@ -21,6 +24,7 @@ $crimeData = $crimeGetter->getData();
         <script type="application/javascript">
             var crimeData = <?php echo json_encode($crimeData); ?>;
             var planningData = <?php echo json_encode($planningData); ?>;
+            var houseData = <?php echo json_encode($houseData); ?>;
         </script>
     </head>
     <body>
