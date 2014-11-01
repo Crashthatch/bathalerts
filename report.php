@@ -23,8 +23,7 @@ if(isset($_POST['email']) && isset($_POST['postcode']) && isset($_POST['crime'])
 $pc = "";
 if(isset($_GET['pc'])) {
     $pc = strtoupper($_GET['pc']);
-}
-else {
+} else {
     header( 'Location: index.php?noPostcode=1' ) ;
 }
 

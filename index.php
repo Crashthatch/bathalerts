@@ -8,8 +8,14 @@
 	    	</header>
 
 	    	<section id="postcode-form">
-	    		<form action="report.php" method="get">
-	    			<input type="text" name="pc" placeholder="e.g. BA1 5EB">
+                <script type="text/javascript">
+                function redirect() {
+                    window.location = "/report/" + $('#postcode').val().replace(/\s/g, '');
+                    return false;
+                }
+                </script>
+	    		<form action="/report/" method="get" onsubmit="return redirect()">
+	    			<input type="text" name="pc" placeholder="e.g. BA1 5EB" id="postcode" />
 	    			<button type="submit" class="btn btn-success">
 	                	<i class="fa fa-arrow-right"></i>
 		            </button>

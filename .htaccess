@@ -1,0 +1,4 @@
+Options +FollowSymLinks  
+RewriteEngine On 
+
+RewriteRule ^report/([^/]*)$ /report.php?pc=$1 [L,QSA]
