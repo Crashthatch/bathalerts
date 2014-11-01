@@ -186,6 +186,7 @@ body.report {
 			display: inline;
 			float: left;
 			margin: 7px 10px 0 0;
+			cursor: pointer;
 
 			& + label {
 				display: inline-block;
@@ -195,6 +196,7 @@ body.report {
 				text-shadow: 0 1px $text;
 				color: $grey;
 				margin: 0 0 20px 0;
+				cursor: pointer;
 			}
 		}
 

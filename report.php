@@ -89,7 +89,8 @@ include('header.php');
                 <h3>Customise your monthly email alerts by ticking the sections on or off below.</h3>
 
                 <div id="planning-applications" class="fourcol first">
-                    <input type="checkbox" name="planning-applications" checked><label for="planning-applications">Planning Applications</label>
+                    <input type="checkbox" name="planning-applications" id="planning-applications_check" checked>
+                    <label for="planning-applications_check">Planning Applications</label>
 
                     <ul>
                         <li>CaseDate - BanesStatus<br />LocationText<br />CaseText</li>
@@ -97,7 +98,8 @@ include('header.php');
                 </div>
 
                 <div id="crimes" class="fourcol">
-                    <input type="checkbox" name="crimes" checked> <label for="crimes">Crimes</label>
+                    <input type="checkbox" name="crimes" id="crimes_check" checked>
+                    <label for="crimes_check">Crimes</label>
 
                     <ul>
                         <li>Crime Category<br />Street Name</li>
@@ -105,7 +107,8 @@ include('header.php');
                 </div>
 
                 <div id="house-sales" class="fourcol last">
-                    <input type="checkbox" name="house-sales" checked> <label for="house-sales">House Sales</label>
+                    <input type="checkbox" name="house-sales" id="house-sales_check" checked>
+                    <label for="house-sales_check">House Sales</label>
 
                     <ul>
                         <li>Date of Transfer - Price<br />Address</li>
