@@ -34,6 +34,63 @@ h2 {
 	text-shadow: 0 1px $text;
 }
 
+form {
+
+	// Postcode Field
+	input[type="text"],
+	input[type="email"] {
+		background: $white;
+		border: none;
+		border-radius: 3px 0 0 3px;
+		margin: 0 0 0 0;
+		padding: 10px;
+		box-shadow: 1px 1px 2px $text;
+		outline: none;
+
+		&:focus {
+			text-transform: uppercase;
+
+			&::-webkit-input-placeholder {
+				   color: transparent;
+			}
+		}
+	}
+
+	input#pc-hidden {
+		display: none;
+	}
+
+	// Submit
+	button {
+		background: $white;
+		border: none;
+		border-radius: 0 3px 3px 0;
+		margin: 0 0 0 -5px;
+		padding: 10px;
+		box-shadow: 1px 1px 2px $text;
+		outline: none;
+
+		i {
+			font-family: "FontAwesome";
+			font-size: 20px;
+			color: $text;
+		}
+
+		&:hover i {
+			color: darken($text, 25%);
+		}
+
+		&:focus {
+			outline: none;
+
+			i {
+				color: darken($text, 25%);
+			}
+		}
+	}
+}
+
+
 
 // Home Page
 body.home {
@@ -45,57 +102,6 @@ body.home {
 
 	section {
 		text-align: center;
-
-		form {
-
-			// Postcode Field
-			input[type="text"] {
-				background: $white;
-				border: none;
-				border-radius: 3px 0 0 3px;
-				margin: 0 0 0 0;
-				padding: 10px;
-				box-shadow: 1px 1px 2px $text;
-				outline: none;
-
-				&:focus {
-					text-transform: uppercase;
-
-					&::-webkit-input-placeholder {
-						   color: transparent;
-					}
-				}
-			}
-
-			// Submit
-			button {
-				background: $white;
-				border: none;
-				border-radius: 0 3px 3px 0;
-				margin: 0 0 0 -5px;
-				padding: 10px;
-				box-shadow: 1px 1px 2px $text;
-				outline: none;
-
-				i {
-					font-family: "FontAwesome";
-					font-size: 20px;
-					color: $text;
-				}
-
-				&:hover i {
-					color: darken($text, 25%);
-				}
-
-				&:focus {
-					outline: none;
-
-					i {
-						color: darken($text, 25%);
-					}
-				}
-			}
-		}
 	}
 }
 

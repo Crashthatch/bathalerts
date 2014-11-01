@@ -31,8 +31,9 @@ include('header.php');
 
                 <form method="post">
                     <input type="email" name="email">
+                    <input type="text" name="postcode" placeholder="<?php echo $pc; ?>" id="pc-hidden">
                     <button type="submit" class="btn btn-success">
-                        <i class="fa fa-arrow-right"></i>
+                        <i class="fa fa-envelope-o"></i>
                     </button>
                 </form>
             </div>
