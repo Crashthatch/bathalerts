@@ -11,7 +11,7 @@
 
 		<link rel="stylesheet" type="text/css" href="style.css">
 
-        <title>Bath Alerts - POST CODE</title>
+        <title>Bath Alerts</title>
 
         <!-- INSERT Google Analytics -->
     </head>
@@ -24,10 +24,10 @@
 	    	</header>
 
 	    	<section id="postcode-form">
-	    		<form action="">
-	    			<input type="text" placeholder="e.g. BA1 5EB">
+	    		<form action="report.php" method="get">
+	    			<input type="text" name="pc" placeholder="e.g. BA1 5EB">
 	    			<button type="submit" class="btn btn-success">
-	                	<i class="fa fa-arrow-right"></i>	
+	                	<i class="fa fa-arrow-right"></i>
 		            </button>
 	    		</form>
 	    	</section>
