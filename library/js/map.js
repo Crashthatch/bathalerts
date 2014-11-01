@@ -1,13 +1,9 @@
-
-
 var Acetate_all = L.tileLayer('http://a{s}.acetate.geoiq.com/tiles/acetate-hillshading/{z}/{x}/{y}.png', {
 	attribution: '&copy;2012 Esri & Stamen, Data from OSM and Natural Earth',
 	subdomains: '0123',
 	minZoom: 2,
 	maxZoom: 18
 })
-
-
 
 var crimesLayer2 = new L.geoJson(null, {
     pointToLayer: function (feature, latlng) {
@@ -82,8 +78,3 @@ $.getJSON("assets/php/getMarkers.php", function (data) {
                }
          });
 */
-
-
-
-
-

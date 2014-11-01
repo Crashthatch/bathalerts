@@ -1,20 +1,4 @@
-<!DOCTYPE html>
-
-<html>
-	<head>
-	    <meta charset="utf-8">
-
-		<!-- Mobile -->
-		<meta name="HandheldFriendly" content="True">
-		<meta name="MobileOptimized" content="320">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-		<link rel="stylesheet" type="text/css" href="style.css">
-
-        <title>Bath Alerts</title>
-
-        <!-- INSERT Google Analytics -->
-    </head>
+<?php include('header.php'); ?>
 
     <body class="home">
 	    <div class="wrap">
