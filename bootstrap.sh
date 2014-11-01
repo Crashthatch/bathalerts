@@ -33,3 +33,32 @@ display_errors = On
 sudo service apache2 restart;
 
 
+sudo debconf-set-selections <<< 'mysql-server-5.5 mysql-server/root_password password 3QDr2mrhYVEjnp'
+sudo debconf-set-selections <<< 'mysql-server-5.5 mysql-server/root_password_again password 3QDr2mrhYVEjnp'
+
+sudo debconf-set-selections <<< 'phpmyadmin phpmyadmin/dbconfig-install boolean false'
+sudo debconf-set-selections <<< 'phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2'
+
+sudo debconf-set-selections <<< 'phpmyadmin phpmyadmin/app-password-confirm password 3QDr2mrhYVEjnp'
+sudo debconf-set-selections <<< 'phpmyadmin phpmyadmin/mysql/admin-pass password 3QDr2mrhYVEjnp'
+sudo debconf-set-selections <<< 'phpmyadmin phpmyadmin/password-confirm password 3QDr2mrhYVEjnp'
+sudo debconf-set-selections <<< 'phpmyadmin phpmyadmin/setup-password password 3QDr2mrhYVEjnp'
+sudo debconf-set-selections <<< 'phpmyadmin phpmyadmin/database-type select mysql'
+sudo debconf-set-selections <<< 'phpmyadmin phpmyadmin/mysql/app-pass password 3QDr2mrhYVEjnp'
+
+sudo debconf-set-selections <<< 'dbconfig-common dbconfig-common/mysql/app-pass password 3QDr2mrhYVEjnp'
+sudo debconf-set-selections <<< 'dbconfig-common dbconfig-common/mysql/app-pass password'
+sudo debconf-set-selections <<< 'dbconfig-common dbconfig-common/password-confirm password 3QDr2mrhYVEjnp'
+sudo debconf-set-selections <<< 'dbconfig-common dbconfig-common/app-password-confirm password 3QDr2mrhYVEjnp'
+sudo debconf-set-selections <<< 'dbconfig-common dbconfig-common/app-password-confirm password 3QDr2mrhYVEjnp'
+sudo debconf-set-selections <<< 'dbconfig-common dbconfig-common/password-confirm password 3QDr2mrhYVEjnp'
+
+sudo apt-get install -y -q mysql-server;
+
+mysql -u root -p3QDr2mrhYVEjnp -e "CREATE USER 'bathalert_user'@'localhost' IDENTIFIED BY 'LAp7kWEaQv';"
+mysql -u root -p3QDr2mrhYVEjnp -e "GRANT ALL ON bathalerts.* TO 'bathalert_user'@'localhost';"
+
+mysql -u bathalert_user -pLAp7kWEaQv < /vagrant/Schema/db.sql
+
+sudo apt-get install php5-mysqlnd
+sudo service apache2 restart;
