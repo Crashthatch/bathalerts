@@ -30,7 +30,10 @@ class PlanningApplication extends Module {
                             'casetext'      => $ap->casetext,
                             'locationtext'  => $ap->locationtext,
                             'banesstatus'   => $ap->banesstatus,
-                            'casereference' => $ap->casereference
+                            'casereference' => $ap->casereference,
+                            'location'      => array(
+                                "longitude" => $apl[0], 
+                                "latitude"  => $apl[1])
                         );
                     }
                 }

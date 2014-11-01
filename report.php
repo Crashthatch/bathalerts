@@ -21,28 +21,43 @@ $crimeData = $crimeGetter->getData();
 $hd = new HousePrice($pc);
 $houseData = $hd->getData();
 
+include('header.php');
+
 ?>
-<!DOCTYPE html>
-<html>
-	<head>
-        <title>Bath Alerts</title>
-        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-        <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <link rel="stylesheet" href="map/map.css" />
-        <script type="application/javascript">
-            var crimeData = <?php echo json_encode($crimeData); ?>;
-            var planningData = <?php echo json_encode($planningData); ?>;
-            var houseData = <?php echo json_encode($houseData); ?>;
-        </script>
-    </head>
-    <body>
-        <?php if($pc) { ?>
-            <div id="map"></div>
-            <script src="map/map.js"></script>
-            <!-- If the post code is defined show data -->
-        <?php } else { ?>
-            <!-- Redirect to initial page -->
-        <?php } ?>
+
+    <body class="report">
+
+        <header>
+            <div class="wrap">
+                <h1>BathAlerts</h1>
+                <h2>Get monthly email alerts about things near you</h2>
+
+                <form method="post">
+                    <input type="email" name="email">
+                    <button type="submit" class="btn btn-success">
+                        <i class="fa fa-arrow-right"></i>
+                    </button>
+                </form>
+            </div>
+        </header>
+
+        <section>
+            <div class="wrap">
+                <h3>Showing information local to <span><?php echo $pc; ?></span><a href="/">Change</a></h3>
+            </div>
+
+            <?php if ($pc) { ?>
+                <script type="application/javascript">
+                    var crimeData = <?php echo json_encode($crimeData); ?>;
+                    var planningData = <?php echo json_encode($planningData); ?>;
+                    var houseData = <?php echo json_encode($houseData); ?>;
+                </script>
+
+                <div id="map"></div>
+                <script src="library/js/map.js"></script>
+            <?php } else {} ?>
+        </section>
+
+        <footer></footer>
     </body>
 </html>
