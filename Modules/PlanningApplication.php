@@ -3,20 +3,25 @@
 class PlanningApplication extends Module {
 
     public $url = "https://data.bathhacked.org/resource/uyh5-eygi.json";
-    public $pc  = "";
+    public $postCode  = "";
     
     
-    function __construct($pc) {
+    function __construct($postCode) {
         parent::__construct();
-        $this->pc = $pc;
+        $this->postCode = $postCode;
     }
     
     function getData() {
         $aps = json_decode($this->fetch());
-        foreach($aps as $ap) {  
-            preg_match('/(GIR ?0AA|[A-PR-UWYZ]([0-9]{1,2}|([A-HK-Y][0-9]([0-9ABEHMNPRV-Y])?)|[0-9][A-HJKPS-UW]) ?[0-9][ABD-HJLNP-UW-Z]{2})/', $ap->locationtext, $matches);
+        foreach($aps as $ap) {
+            preg_match(Module::POSTCODE_REGEX, $ap->locationtext, $matches);
+            if(isset($matches[0])) {
+                echo print_r($this->getPostCodeLocation($matches[0]));
+            }
         }
     }
+
+    
     
 }
 

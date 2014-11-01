@@ -2,6 +2,7 @@
 
 abstract class Module {
 
+    const POSTCODE_REGEX = '/(GIR ?0AA|[A-PR-UWYZ]([0-9]{1,2}|([A-HK-Y][0-9]([0-9ABEHMNPRV-Y])?)|[0-9][A-HJKPS-UW]) ?[0-9][ABD-HJLNP-UW-Z]{2})/';
     protected static $postCodes = false;
     private $tkn = "";
     
@@ -33,6 +34,11 @@ abstract class Module {
         );
         $c = stream_context_create($opts);
         return file_get_contents($this->url, false, $c);
+    }
+
+    function getPostCodeLocation($pc) {
+        $pc = str_replace(" ", "", $pc);
+        return (isset(self::$postCodes[$pc]) ? self::$postCodes[$pc] : false);
     }
 }
 
