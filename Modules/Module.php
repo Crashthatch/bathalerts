@@ -16,7 +16,7 @@ abstract class Module {
                 $fields = explode(",", $line);
                 $pc = str_replace(" ", "", $fields[0]);
                 self::$postCodes[strtoupper($pc)] =
-                    array(trim($fields[5]), trim($fields[6]));
+                    array(floatval(trim($fields[5])), floatval(trim($fields[6])));
             }
         } else {
             // Error
