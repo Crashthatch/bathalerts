@@ -19,9 +19,12 @@ $pc = "";
 if(isset($_GET['pc'])) {
     $pc = strtoupper($_GET['pc']);
 }
+else{
+    header( 'Location: index.php?noPostcode=1' ) ;
+}
 //See if this is a postcode we know about and can geo code.
 if( !Module::postcodeExists($pc) ){
-    header( 'Location: index.php?error='.urlencode('That\'s not a BANES Postcode we know about!') ) ;
+    header( 'Location: index.php?unknownPostcode=1' ) ;
 }
 
 $pa = new PlanningApplication($pc);
@@ -39,9 +42,10 @@ include('header.php');
 
         <header>
             <div class="wrap">
-                <h1>BathAlerts</h1>
-                <h2>Get monthly email alerts about things near you</h2>
-
+                <div class="first">
+                    <h1>BathAlerts</h1>
+                    <h2>Get monthly email alerts about things near you</h2>
+                </div>
                 <form method="post">
                     <input type="email" name="email" />
                     <input type="text" name="postcode" value="<?php echo $pc; ?>" id="pc-hidden" />
