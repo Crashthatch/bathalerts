@@ -5,6 +5,24 @@ var Acetate_all = L.tileLayer('http://a{s}.acetate.geoiq.com/tiles/acetate-hills
 	maxZoom: 18
 })
 
+var Hydda_Full = L.tileLayer('http://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png', {
+  minZoom: 0,
+  maxZoom: 18,
+  attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
+});
+
+var Stamen_TonerLite = L.tileLayer('http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png', {
+  attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+  subdomains: 'abcd',
+  minZoom: 0,
+  maxZoom: 20
+});
+var Esri_WorldImagery = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+  attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+});
+
+
+
  var crimeLayer = L.layerGroup()
  var crimeMarker = [];
  var planningLayer = L.layerGroup()
@@ -14,9 +32,7 @@ var Acetate_all = L.tileLayer('http://a{s}.acetate.geoiq.com/tiles/acetate-hills
 
  var bounds = new L.LatLngBounds();
  var layersOnMap = [];
- layersOnMap.push(Acetate_all);
-
-
+ layersOnMap.push(Hydda_Full);
 
 planningIcon  = L.AwesomeMarkers.icon({icon: 'fa-file-text', markerColor: 'red', prefix: 'fa'}) 
 crimeIcon     = L.AwesomeMarkers.icon({icon: 'fa-gavel', markerColor: 'blue', prefix: 'fa'}) 
@@ -26,7 +42,9 @@ postcodeIcon  = L.AwesomeMarkers.icon({icon: 'fa-home', markerColor: 'orange', p
 $.each(crimeData, function(i, feature) {
 	//console.log(crime.location.latitude)
     crimeMarker[i] = L.marker([feature.location.latitude, feature.location.longitude], {icon: crimeIcon})
-                    .bindPopup('<b>Date: </b>'+feature.month.substring(0, 7)+'<br><b>Crime Type: </b>'+feature.crime_category+'<br>'+'<b>Location: </b>'+feature.street_name)
+                    .bindPopup('<b>Date: </b>'+feature.month.substring(0, 7)
+                              +'<br><b>Crime Type: </b>'+toTitleCase(feature.crime_category).split('-').join(' ')
+                              +'<br>'+'<b>Location: </b>'+feature.street_name)
                     .addTo(crimeLayer);
     bounds.extend([feature.location.latitude, feature.location.longitude]);
     layersOnMap.push(crimeLayer);
@@ -49,6 +67,7 @@ $.each(houseData, function(i, feature) {
     propertyMarker[i] = L.marker([feature.location.latitude, feature.location.longitude], {icon: propertyIcon})
                     .bindPopup('<b>Date of sale: </b>'+feature.date_of_transfer.substring(0, 10)
                                 +'<br><b>Price:</b> £'+numberWithCommas(feature.price)
+                                +'<br><b>Type of property: </b>' + typeOfProperty(feature.property_type)
                                 +'<br><b>Address: </b>' + (feature.primary_addressable_object_name ? toTitleCase(feature.primary_addressable_object_name) + ', ' : '')
                                                         + (feature.secondary_addressable_object_name ? toTitleCase(feature.secondary_addressable_object_name) + ', ' : '')
                                                         + (feature.locality ? toTitleCase(feature.locality) + ', ' : '')
@@ -59,8 +78,6 @@ $.each(houseData, function(i, feature) {
                     .addTo(propertyLayer);
     bounds.extend([feature.location.latitude, feature.location.longitude]);
     layersOnMap.push(propertyLayer);
-
-    //{"old_new":"N","date_of_transfer":"2014-03-07T00:00:00","property_type":"T","duration":"L","price":"925000","primary_addressable_object_name":"34","town_city":"BATHWICK","locality":"ST JOHNS ROAD","district":"BATH"}];
 });
 
 
@@ -69,7 +86,11 @@ $.each(houseData, function(i, feature) {
     });
 
     var baseLayers = {
-        "Acetate": Acetate_all
+        "Acetate": Acetate_all,
+        "Hydda": Hydda_Full,
+        "Satmen Toner Lite": Stamen_TonerLite,
+        "Aerial": Esri_WorldImagery 
+
     };
 
     var overlays = {
@@ -78,18 +99,119 @@ $.each(houseData, function(i, feature) {
         "Property Sales": propertyLayer
     };
 
-    L.control.layers(baseLayers, overlays).addTo(map);
+    L.control.layers(baseLayers,overlays).addTo(map);
     var postcodeMarker = L.marker([searchedForPostcode[1],searchedForPostcode[0]], {icon: postcodeIcon, zIndexOffset:999999}).bindPopup('Your Postcode').addTo(map);
-    var postcodeRadius;
-    var highlight = L.geoJson(null).addTo(map);
     map.fitBounds(bounds);
 
+// RADIUS MARKER -------------------------------------------------------------------------------------------------------------------------
+    // Initialise the draw control and pass it the FeatureGroup of editable layers
+   /* var drawControl = new L.Control.Draw({
+        draw: false,
+        edit: {
+            featureGroup: drawnItems
+        }
+    });
+    map.addControl(drawControl);
+    */
+ // RADIUS MARKER  END-------------------------------------------------------------------------------------------------------------------------  
 
+
+
+// toggle email/list checkboxes when map layer control is changed.
+map.on("overlayadd", function(e) {
+  if (e.layer === crimeLayer) {
+    $('#crimes_check').prop('checked', true);
+  }
+  if (e.layer === planningLayer) {
+    $('#planning-applications_check').prop('checked', true);
+  } 
+  if (e.layer === propertyLayer) {
+    $('#house-sales_check').prop('checked', true);
+  } 
+});
+map.on("overlayremove", function(e) {
+  if (e.layer === crimeLayer) {
+    $('#crimes_check').prop('checked', false);
+  }
+  if (e.layer === planningLayer) {
+    $('#planning-applications_check').prop('checked', false);
+  } 
+  if (e.layer === propertyLayer) {
+    $('#house-sales_check').prop('checked', false);
+  } 
+});
+
+//Change map content when email/list checkboxes are changed
+$('#crimes_check').on('change', function(){
+  if ($('#crimes_check').prop('checked')){
+    map.addLayer(crimeLayer)
+  }else{
+    map.removeLayer(crimeLayer)
+  }
+})
+$('#planning-applications_check').on('change', function(){
+  if ($('#planning-applications_check').prop('checked')){
+    map.addLayer(planningLayer)
+  }else{
+    map.removeLayer(planningLayer)
+  }
+})
+$('#house-sales_check').on('change', function(){
+  if ($('#house-sales_check').prop('checked')){
+    map.addLayer(propertyLayer)
+  }else{
+    map.removeLayer(propertyLayer)
+  }
+})
+
+function customRadius(){
+   var drawnItems = new L.FeatureGroup();
+   map.addLayer(drawnItems);
+   var postcodeRadius = L.circle([searchedForPostcode[1],searchedForPostcode[0]], 1000, {
+                                color: 'red', 
+                                fillOpacity: 0, 
+                                opacity: 0.4, 
+                                dashArray: '20'
+                              }).addTo(drawnItems);
+    postcodeRadius.editing.enable();
+    
+    map.on('draw:editstop', function (e) {
+        console.log("Radius of drawn circle: " + drawnItems.getLayers()[0]._mRadius)
+    });
+
+}
+
+
+
+
+
+
+
+// functions to clean up popup text
 function toTitleCase(str){
     return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
 }
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+
+function typeOfProperty(type){
+  switch (type) {
+    case "D":
+        fullType = "Detached house";
+        break;
+    case "S":
+        fullType = "Semi-detached house";
+        break;
+    case "T":
+        fullType = "Terrace";
+        break;
+    case "F":
+        fullType = "Flat";
+        break;
+  }
+  return fullType;
+}
+
 
 

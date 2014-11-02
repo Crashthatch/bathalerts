@@ -80,7 +80,6 @@ include('header.php');
                 </script>
 
                 <div id="map"></div>
-                <script src="/library/js/map.js"></script>
             <?php } else {} ?>
         </section>
 
@@ -122,7 +121,7 @@ include('header.php');
                 </div>
             </div>
         </section>
-
+        <script src="/library/js/map.js"></script>
         <footer></footer>
     </body>
 </html>
