@@ -10,7 +10,9 @@ class Crime extends Module {
         $startDate = date('Y-m-d', time()-4*30*24*60*60);
         $endDate = date('Y-m-d');
 
-        $this->url .= '?$where=month>%27'.$startDate.'%27%20AND%20month<%27'.$endDate.'%27%20AND%20within_circle(location,'.$lat.','.$long.',250)&$order=month%20DESC';
+        $rad = $this->radius;
+        $rad = ($rad == 500 ? $rad / 2 : $rad);
+        $this->url .= '?$where=month>%27'.$startDate.'%27%20AND%20month<%27'.$endDate.'%27%20AND%20within_circle(location,'.$lat.','.$long.','.$rad.')&$order=month%20DESC';
         return json_decode($this->fetch(), true);
     }
 }

@@ -3,7 +3,6 @@
 class HousePrice extends Module {
 
     public $url = "https://data.bathhacked.org/resource/ifh9-xtsp.json";
-    public $radius = 500;
     
     function getData() {
         $lat = $this->point->lat;

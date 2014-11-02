@@ -3,10 +3,12 @@
 abstract class Module {
 
     protected $point;
+    protected $radius;
     private $tkn = "";
 
-    function __construct($point) {
-        $this->point = $point;
+    function __construct($point, $radius = 500) {
+        $this->point  = $point;
+        $this->radius = $radius;
     }
 
     function fetch() {

@@ -35,25 +35,32 @@ if(isset($_POST['email']) && isset($_POST['user-lat']) &&
 }
 
 $pc = "";
-if (isset($_GET['pc'])) {
+if(isset($_GET['pc']) && !isset($_POST['user-long'])) {
     $pc = new Point($_GET['pc']);
-
     if(!$pc->exists()) {
         header('Location: /index.php?unknownPostcode=1');
     }
-} 
-
-else {
+} else {
     header('Location: /index.php?noPostcode=1') ;
 }
 
-$pa = new PlanningApplication($pc);
+// Check if user is changing default point
+$rad = 500;
+if(isset($_POST['radius']) && is_numeric($_POST['radius'])) {
+    $rad = $_POST['radius'];
+}
+if(isset($_POST['user-long']) && isset($_POST['user-lat'])) {
+    $pc = array($_POST['user-lat'], $_POST['user-long']);
+}
+
+
+$pa = new PlanningApplication($pc, $rad);
 $planningData = $pa->getData();
-$crimeGetter = new Crime($pc);
+$crimeGetter = new Crime($pc, $rad);
 $crimeData = $crimeGetter->getData();
-$hd = new HousePrice($pc);
+$hd = new HousePrice($pc, $rad);
 $houseData = $hd->getData();
-$floodGetter = new Floods($pc);
+$floodGetter = new Floods($pc, $rad);
 $floodData = $floodGetter->getData();
 
 include_once('header.php');
@@ -102,7 +109,7 @@ include_once('header.php');
                 </div>
 
                 <form method="post">
-                    <input type="hidden" name="radius" id="user-radius" value="500" checked>
+                    <input type="hidden" name="radius" id="user-radius" value="<?= $rad ?>" checked>
                     <div class="inner-form">
                         <div id="flood-risk" class="clearfix">
                             <input type="checkbox" name="flooding" id="flood-risk_check" value="Yes" checked>
