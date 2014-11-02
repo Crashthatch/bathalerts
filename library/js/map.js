@@ -42,7 +42,8 @@ var Esri_WorldImagery = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/
     maxClusterRadius: 1,
     spiderfyOnMaxZoom: true, 
     showCoverageOnHover: false, 
-    zoomToBoundsOnClick: true
+    zoomToBoundsOnClick: true,
+    animateAddingMarkers: true
   });
 
 planningIcon  = L.AwesomeMarkers.icon({icon: 'fa-file-text', markerColor: 'red', prefix: 'fa'}) 
@@ -232,10 +233,12 @@ $('#flood-risk_check').on('change', function(){
 $('#custom-search-button').on("click", function(){
   if ($('#custom-search-button').html() === "Change"){
     setCustomRadius();
-    $('#custom-search-button').html("Save");
+    $('#custom-search-button').html("Update map content");
   }else{
     saveCustomRadius();
-    $('#custom-search-button').html("Change");
+    $('#custom-search-button').html("Loading content...");
+    map.removeLayer(clusterLayer);
+    map.removeLayer(floodLayer);
   }
 
 })
@@ -243,9 +246,32 @@ $('#custom-search-button').on("click", function(){
 var editing_radius;
 map.on("zoomend", function(e) {
  if (editing_radius === true)  {
-    $('.marker-cluster').addClass('fade-markers');
+   // map.addLayer(clusterLayer);
+      setTimeout(function() {
+               $('.awesome-marker, .leaflet-shadow-pane, .marker-cluster').addClass('fade-markers');
+      }, 1);
   }
 });
+map.on("zoomstart", function(e) {
+ if (editing_radius === true)  {
+     // map.removeLayer(clusterLayer);
+      setTimeout(function() {
+               $('.awesome-marker, .leaflet-shadow-pane, .marker-cluster').addClass('fade-markers');
+      }, 1);
+  }
+});
+
+map.on("mouseup", function(e) {
+  if (editing_radius === true)  {
+    $('#user-radius').val(Math.round(drawnItems.getLayers()[0]._mRadius))
+    $('#user-lat-hidden').val(drawnItems.getLayers()[0]._latlng.lat)
+    $('#user-long-hidden').val(drawnItems.getLayers()[0]._latlng.lng)
+    postcodeMarker.setLatLng([drawnItems.getLayers()[0]._latlng.lat,drawnItems.getLayers()[0]._latlng.lng]);
+    console.log("Radius of drawn circle: " + Math.round(drawnItems.getLayers()[0]._mRadius) + "m around "+drawnItems.getLayers()[0]._latlng.lat+','+drawnItems.getLayers()[0]._latlng.lng)
+  
+  }
+});
+
 
 function setCustomRadius(){
    //$('.awesome-marker, .leaflet-shadow-pane').css({'opacity':'0.2'});

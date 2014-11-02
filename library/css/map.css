@@ -33,14 +33,13 @@
 	}
 .marker-cluster span {
 	line-height: 38px; /* adjusts text position? */
-	
-	}
+}
 
 .green-cluster{
 	background-position: -72px 0;
 }
 
 .fade-markers{
-opacity:0.2!important;
-
+opacity:0.4!important;
+-webkit-transition: opacity 0.2s; /* For Safari 3.1 to 6.0 */
 }
