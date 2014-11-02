@@ -103,7 +103,7 @@ include_once('header.php');
                 <form method="post">
                     <div class="inner-form">
                         <div id="flood-risk" class="clearfix">
-                            <input type="checkbox" name="flooding" id="flood-risk_check" checked>
+                            <input type="checkbox" name="flooding" id="flood-risk_check" value="Yes" checked>
                             <label for="flood-risk_check">Flood Risk</label>
 
                             <ul>
@@ -114,7 +114,7 @@ include_once('header.php');
                         </div>
 
                         <div id="planning-applications" class="fourcol first">
-                            <input type="checkbox" name="planning" id="planning-applications_check" checked>
+                            <input type="checkbox" name="planning" id="planning-applications_check" value="Yes" checked>
                             <label for="planning-applications_check">Planning Applications</label>
 
                             <ul>
@@ -129,7 +129,7 @@ include_once('header.php');
                         </div>
 
                         <div id="crimes" class="fourcol">
-                            <input type="checkbox" name="crime" id="crimes_check" checked>
+                            <input type="checkbox" name="crime" id="crimes_check" value="Yes" checked>
                             <label for="crimes_check">Crimes</label>
 
                             <ul>
@@ -141,7 +141,7 @@ include_once('header.php');
                         </div>
 
                         <div id="house-sales" class="fourcol last">
-                            <input type="checkbox" name="houses" id="house-sales_check" checked>
+                            <input type="checkbox" name="houses" id="house-sales_check" value="Yes" checked>
                             <label for="house-sales_check">House Sales</label>
 
                             <ul>
