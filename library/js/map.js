@@ -50,7 +50,7 @@ planningIcon  = L.AwesomeMarkers.icon({icon: 'fa-file-text', markerColor: 'red',
 crimeIcon     = L.AwesomeMarkers.icon({icon: 'fa-gavel', markerColor: 'blue', prefix: 'fa'}) 
 propertyIcon  = L.AwesomeMarkers.icon({icon: 'fa-gbp', markerColor: 'green', prefix: 'fa'}) 
 postcodeIcon  = L.AwesomeMarkers.icon({icon: 'fa-home', markerColor: 'orange', prefix: 'fa'}) 
-clusterIcon   = L.AwesomeMarkers.icon({icon: 'fa-home', markerColor: 'purple', prefix: 'fa'}) 
+loadingIcon   = L.AwesomeMarkers.icon({icon: 'fa-refresh', markerColor: 'orange', prefix: 'fa', spin: true}) 
 
 
 $.each(floodData.ProximityFloodAlerts, function(i, feature){
@@ -237,8 +237,10 @@ $('#custom-search-button').on("click", function(){
   }else{
     saveCustomRadius();
     $('#custom-search-button').html("Loading content...");
+    postcodeMarker.setIcon(loadingIcon);
     map.removeLayer(clusterLayer);
     map.removeLayer(floodLayer);
+    bounds = [];
   }
 
 })
