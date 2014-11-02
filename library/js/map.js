@@ -29,6 +29,8 @@ var Esri_WorldImagery = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/
  var planningMarker = [];
  var propertyLayer = L.layerGroup()
  var propertyMarker = [];
+ var floodLayer = L.layerGroup()
+ var floodArea = [];
 
  var bounds = new L.LatLngBounds();
  var layersOnMap = [];
@@ -80,6 +82,25 @@ $.each(houseData, function(i, feature) {
     layersOnMap.push(propertyLayer);
 });
 
+$.each(floodData.ProximityFloodAlerts, function(i, feature){
+    var floodAlertBounds = [[feature.Bounds.BottomRight.Latitude, feature.Bounds.BottomRight.Longitude], [feature.Bounds.TopLeft.Latitude, feature.Bounds.TopLeft.Longitude]];
+    floodArea[i] =  L.rectangle(floodAlertBounds, {
+                                  color: "#40bced", 
+                                  fillColor: "#40bced", 
+                                  fillOpacity: 0.2, 
+                                  weight: 3, 
+                                  dashArray:20
+                                })
+                      .bindPopup("<b>Flood Alert</b>"
+                                +"<br><b>Date Issued: </b>" + feature.FloodAlert.Raised.substring(0, 10)
+                                +"<br><b>Location: </b>" + feature.FloodAlert.AreaDescription
+                                +"<br><b>Severity: </b>" + feature.FloodAlert.Severity
+                          )
+                      .addTo(floodLayer);
+    layersOnMap.push(floodLayer);
+
+})
+
 
     var map = L.map('map', {
         layers: layersOnMap
@@ -96,7 +117,8 @@ $.each(houseData, function(i, feature) {
     var overlays = {
         "Crimes": crimeLayer,
         "Planning Applications": planningLayer,
-        "Property Sales": propertyLayer
+        "Property Sales": propertyLayer,
+        "Flood Alerts": floodLayer
     };
    var drawnItems = new L.FeatureGroup();
    var postcodeRadius = L.circle([searchedForPostcode[1],searchedForPostcode[0]], 1000, {
