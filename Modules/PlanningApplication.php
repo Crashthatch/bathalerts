@@ -38,8 +38,8 @@ class PlanningApplication extends Module {
                             'banesstatus'   => $ap->banesstatus,
                             'casereference' => $ap->casereference,
                             'location'      => array(
-                                "longitude" => $apl->lat, 
-                                "latitude"  => $apl->long)
+                                "longitude" => $apl->long, 
+                                "latitude"  => $apl->lat)
                         );
                     }
                 }

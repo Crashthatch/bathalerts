@@ -40,8 +40,8 @@ class Point {
             fclose($handle);
             $pc = strtoupper(str_replace(" ", "", $pc));
             if(isset(self::$pCodeDb[$pc])) {
-                $this->lat  = self::$pCodeDb[$pc][0];
-                $this->long = self::$pCodeDb[$pc][1];
+                $this->long  = self::$pCodeDb[$pc][0];
+                $this->lat   = self::$pCodeDb[$pc][1];
             }
         }
     }

@@ -87,7 +87,7 @@ include_once('header.php');
                     var crimeData = <?php echo json_encode($crimeData); ?>;
                     var planningData = <?php echo json_encode($planningData); ?>;
                     var houseData = <?php echo json_encode($houseData); ?>;
-                    var searchedForPostcode = <?php echo json_encode(array($pc->lat, $pc->long)); ?>;
+                    var searchedForPostcode = <?php echo json_encode(array($pc->long, $pc->lat)); ?>;
                 </script>
 
                 <div id="map"></div>
