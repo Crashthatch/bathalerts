@@ -1486,6 +1486,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/library\/css\/style.css": {
+		"fileType": 16,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/library\/css\/style.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/library\/images\/bath-bg.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -1508,6 +1517,22 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
+	"\/library\/sass\/base.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 10,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/library\/sass\/base.scss",
+		"outputAbbreviatedPath": "\/library\/css\/base.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
+		},
 	"\/library\/sass\/style.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
@@ -1522,6 +1547,22 @@
 		"outputStyle": 3,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 1,
+		"useLibsass": 0
+		},
+	"\/library\/sass\/variables.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 10,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/library\/sass\/variables.scss",
+		"outputAbbreviatedPath": "\/library\/css\/variables.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
 		"useLibsass": 0
 		},
 	"\/Mandrill.php": {
