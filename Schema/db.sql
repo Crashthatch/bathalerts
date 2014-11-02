@@ -15,6 +15,7 @@ CREATE TABLE IF NOT EXISTS `bathalerts`.`Users` (
   `Crime` TINYINT(1) NOT NULL,
   `Planning` TINYINT(1) NOT NULL,
   `Houses` TINYINT(1) NOT NULL,
+  `Flooding` TINYINT(1) NOT NULL,
   PRIMARY KEY (`Email`, `UserLat`, `UserLong`))
 ENGINE = InnoDB;
 

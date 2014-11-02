@@ -18,7 +18,7 @@ if(isset($_POST['email']) && isset($_POST['user-lat']) &&
     $userLat  = $conn->real_escape_string($_POST['user-lat']);
     $userLong = $conn->real_escape_string($_POST['user-long']);
     
-    $houses   = ($_POST['crime'] == 'Yes' ? "TRUE" : "FALSE");
+    $houses   = ($_POST['houses'] == 'Yes' ? "TRUE" : "FALSE");
     $crime    = ($_POST['crime'] == 'Yes' ? "TRUE" : "FALSE");
     $planning = ($_POST['planning'] == 'Yes' ? "TRUE" : "FALSE");
     $flooding = ($_POST['flooding'] == 'Yes' ? "TRUE" : "FALSE");
@@ -89,38 +89,34 @@ include_once('header.php');
                 <form method="post">
                     <div class="inner-form">
                         <div id="planning-applications" class="fourcol first">
-                            <input type="checkbox" name="planning-applications" id="planning-applications_check" checked>
+                            <input type="checkbox" name="planning" id="planning-applications_check" checked>
                             <label for="planning-applications_check">Planning Applications</label>
 
                             <ul>
-                                <?php 
-                                foreach($planningData as $plan) {
+                                <?php foreach($planningData as $plan) {
                                     echo '<li><strong>' . 
-                                            date("F jS, Y", strtotime(str_replace("T", " ", $plan['casedate']))) . " " .                                  
-                                            $plan['banesstatus'] . '</strong><br /><span>' . 
-                                            $plan['locationtext'] . '</span><br /><span>' . 
-                                            $plan['casetext'] . '</span></li>';
-                                } 
-                                ?>
+                                    date("jS F, Y", strtotime(str_replace("T", " ", $plan['casedate']))) . " - " .
+                                    $plan['banesstatus'] . '</strong><br /><span>' . 
+                                    $plan['locationtext'] . '</span><br /><span><em>' . 
+                                    $plan['casetext'] . '</span></em></li>';
+                                } ?>
                             </ul>
                         </div>
 
                         <div id="crimes" class="fourcol">
-                            <input type="checkbox" name="crimes" id="crimes_check" checked>
+                            <input type="checkbox" name="crime" id="crimes_check" checked>
                             <label for="crimes_check">Crimes</label>
 
                             <ul>
-                                <?php 
-                                    foreach ($crimeData as $crime) {
-                                        $crime_nice_name = str_replace("-", " ", $crime['crime_category']);
-                                        echo '<li><strong>' . $crime_nice_name . '</strong><br />' . $crime['street_name'] . '</li>';
-                                    }
-                                ?>
+                                <?php foreach ($crimeData as $crime) {
+                                    $crime_nice_name = str_replace("-", " ", $crime['crime_category']);
+                                    echo '<li><strong>' . date("F, Y", strtotime(str_replace("T", " ", $crime['month']))) . " " . ' - ' . $crime_nice_name . '</strong><br />' . $crime['street_name'] . '</li>';
+                                } ?>
                             </ul>
                         </div>
 
                         <div id="house-sales" class="fourcol last">
-                            <input type="checkbox" name="house-sales" id="house-sales_check" checked>
+                            <input type="checkbox" name="houses" id="house-sales_check" checked>
                             <label for="house-sales_check">House Sales</label>
 
                             <ul>
@@ -128,27 +124,38 @@ include_once('header.php');
                                     $addr = (isset($houses['secondary_addressable_object_name']) ? 
                                         $houses['secondary_addressable_object_name'] : "");
                                     echo '<li><strong>' . 
-                                        date("F jS, Y", strtotime(str_replace("T", " ", $houses['date_of_transfer']))) . ' - £' . 
-                                        number_format($houses['price']) . '</strong><br />' . 
-                                        ($addr ? strtolower($addr) . ', ' : "") . 
-                                        strtolower($houses['locality']) . ', ' . 
-                                        strtolower($houses['district']) . ', <span>' . 
-                                        strtolower($houses['postcode']) . '</span></li>';
+                                    date("jS F, Y", strtotime(str_replace("T", " ", $houses['date_of_transfer']))) . ' - £' . 
+                                    number_format($houses['price']) . '</strong><br />' . 
+                                    ($addr ? strtolower($addr) . ', ' : "") . 
+                                    strtolower($houses['locality']) . ', ' . 
+                                    strtolower($houses['district']) . ', <span>' . 
+                                    strtolower($houses['postcode']) . '</span></li>';
                                 } ?>
                             </ul>
                         </div>
                     </div>
 
                     <div class="form-elements">
-                        <input type="hidden" name="user-lat" id="user-lat-hidden" value="<?php echo $pc->lat; ?>" />
-                        <input type="hidden" name="user-long" id="user-long-hidden" value="<?php echo $pc->long; ?>" />
-                        <input type="email" name="email" placeholder="Sign-up for email alerts" />
-                        <button type="submit" class="btn btn-success">
-                            <i class="fa fa-envelope-o"></i>
-                        </button>
+                        <div>
+                            <h2>Create your Alert</h2>
+
+                            <p>Type your email address and click the mail icon to start your email subscription.<br />
+                            <em>You can unsubscribe at any time using the link at the bottom of your email.</em></p>
+                        </div>
+
+                        <div>
+                            <input type="hidden" name="user-lat" id="user-lat-hidden" value="<?php echo $pc->lat; ?>" />
+                            <input type="hidden" name="user-long" id="user-long-hidden" value="<?php echo $pc->long; ?>" />
+                            <input type="email" name="email" placeholder="Sign-up for email alerts" />
+                            <button type="submit" class="btn btn-success">
+                                <i class="fa fa-envelope-o"></i>
+                            </button>
+                        </div>
                     </div>
                 </form>
             </div>
         </section>        
 
-        <?php include_once('footer.php'); ?>
+        <?php 
+        $current_page = basename(__FILE__, '.php');
+        include_once('footer.php'); ?>
