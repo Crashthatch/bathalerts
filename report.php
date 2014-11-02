@@ -13,11 +13,12 @@ $emailAdded = false;
 if(isset($_POST['email']) && isset($_POST['user-lat']) && 
         isset($_POST['user-long']) && isset($_POST['crime']) && 
         isset($_POST['planning']) && isset($_POST['houses']) &&
-        isset($_POST['flooding'])) {
+        isset($_POST['flooding']) && isset($_POST['radius'])) {
         
     $email    = $conn->real_escape_string($_POST['email']);
     $userLat  = $conn->real_escape_string($_POST['user-lat']);
     $userLong = $conn->real_escape_string($_POST['user-long']);
+    $radius   = $conn->real_escape_string($_POST['radius']);
     
     $houses   = ($_POST['houses'] == 'Yes' ? "TRUE" : "FALSE");
     $crime    = ($_POST['crime'] == 'Yes' ? "TRUE" : "FALSE");
@@ -26,9 +27,9 @@ if(isset($_POST['email']) && isset($_POST['user-lat']) &&
     
     $conn->query(
         "INSERT IGNORE INTO Users " . 
-            "(`Email`, `UserLat`, `UserLong`, `Crime`, `Planning`, `Houses`, `Flooding`) " .
+            "(`Email`, `UserLat`, `UserLong`, `Crime`, `Planning`, `Houses`, `Flooding`, `Radius`) " .
         "VALUES " . 
-            "('$email', '$userLat', '$userLong', $crime, $planning, $houses, $flooding)");
+            "('$email', '$userLat', '$userLong', $crime, $planning, $houses, $flooding, $radius)");
             
     $emailAdded = true;
 }
@@ -101,6 +102,7 @@ include_once('header.php');
                 </div>
 
                 <form method="post">
+                    <input type="hidden" name="radius" id="user-radius" value="500" checked>
                     <div class="inner-form">
                         <div id="flood-risk" class="clearfix">
                             <input type="checkbox" name="flooding" id="flood-risk_check" value="Yes" checked>
