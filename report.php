@@ -95,7 +95,7 @@ include_once('header.php');
                             <ul>
                                 <?php foreach($planningData as $plan) {
                                     echo '<li><strong>' . 
-                                    date("jS F, Y", strtotime(str_replace("T", " ", $plan['casedate']))) . " " .                                  
+                                    date("jS F, Y", strtotime(str_replace("T", " ", $plan['casedate']))) . " - " .
                                     $plan['banesstatus'] . '</strong><br /><span>' . 
                                     $plan['locationtext'] . '</span><br /><span><em>' . 
                                     $plan['casetext'] . '</span></em></li>';
@@ -156,4 +156,6 @@ include_once('header.php');
             </div>
         </section>        
 
-        <?php include_once('footer.php'); ?>
+        <?php 
+        $current_page = basename(__FILE__, '.php');
+        include_once('footer.php'); ?>
