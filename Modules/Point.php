@@ -52,11 +52,9 @@ class Point {
     
     function toString() {
         if($this->pCodeString) {
-            return $this->pCodeString;
+            return strtoupper($this->pCodeString);
         } else {
-            $lat = substr($this->lat, 0, 4) . "...";
-            $lon = substr($this->long, 0, 5) . "...";
-            return "coords $lat $lon";
+            return "your custom area";
         }
     }
 }

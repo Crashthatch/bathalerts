@@ -104,7 +104,7 @@ include_once('header.php');
         <section id="map-section">
             <div class="wrap">
                 <div class="first">
-                    <h3>Showing information local to <span><?php echo $pc->toString(); ?></span><a href="/">Change</a></h3>
+                    <h3>Showing information local to <?php echo $pc->toString(); ?><a href="/">Change</a></h3>
                 </div>
 
                 <div class="last">
