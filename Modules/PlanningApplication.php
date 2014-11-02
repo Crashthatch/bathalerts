@@ -2,7 +2,7 @@
 
 class PlanningApplication extends Module {
 
-    const MAX_DISTANCE = 1;  // In Km
+    const MAX_DISTANCE = 0.5;  // In Km
     public $url = "https://data.bathhacked.org/resource/uyh5-eygi.json";
     
     function getData() {

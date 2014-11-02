@@ -9,7 +9,7 @@ class HousePrice extends Module {
         $long = $this->point->long;
         $startDate = date('Y-m-d', time()-6*30*24*60*60);
         $endDate = date('Y-m-d');
-        $this->url .= '?$where=date_of_transfer>%27'.$startDate.'%27%20AND%20date_of_transfer<%27'.$endDate.'%27%20AND%20within_circle(location,'.$long.','.$lat.',1000)';
+        $this->url .= '?$where=date_of_transfer>%27'.$startDate.'%27%20AND%20date_of_transfer<%27'.$endDate.'%27%20AND%20within_circle(location,'.$long.','.$lat.',500)';
         return json_decode($this->fetch(), true);
     }
 }
