@@ -215,11 +215,16 @@ body.report {
 					margin-left: -27px;
 					width: 27px;
 				}
+
+				strong {
+					text-transform: capitalize;
+				}
 			}
 		}
 
 		#planning-applications ul li:before {
 			content: "\f15c";
+			color: #DF0804;
 		}
 
 		#crimes ul li:before {

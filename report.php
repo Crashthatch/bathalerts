@@ -80,7 +80,6 @@ include('header.php');
                 </script>
 
                 <div id="map"></div>
-                <script src="/library/js/map.js"></script>
             <?php } else {} ?>
         </section>
 
@@ -105,7 +104,8 @@ include('header.php');
 
                     <ul>
                         <?php foreach ($crimeData as $crime) {
-                            echo '<li>' . $crime['crime_category'] . '<br />' . $crime['street_name'] . '</li>';
+                            $crime_nice_name = str_replace("-", " ", $crime['crime_category']);
+                            echo '<li><strong>' . $crime_nice_name . '</strong><br />' . $crime['street_name'] . '</li>';
                         } ?>
                     </ul>
                 </div>
@@ -122,7 +122,7 @@ include('header.php');
                 </div>
             </div>
         </section>
-
+        <script src="/library/js/map.js"></script>
         <footer></footer>
     </body>
 </html>
