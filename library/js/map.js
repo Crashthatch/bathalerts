@@ -89,9 +89,9 @@ $.each(floodData.ProximityFloodAlerts, function(i, feature){
                                   fillColor: "#40bced", 
                                   fillOpacity: 0.2, 
                                   weight: 3, 
-                                  dashArray:20
+                                  dashArray:10
                                 })
-                      .bindPopup("<b>Flood Alert</b>"
+                      .bindPopup("<b>Environment Agency Flood Alert</b>"
                                 +"<br><b>Date Issued: </b>" + feature.FloodAlert.Raised.substring(0, 10)
                                 +"<br><b>Location: </b>" + feature.FloodAlert.AreaDescription
                                 +"<br><b>Severity: </b>" + feature.FloodAlert.Severity
@@ -121,7 +121,7 @@ $.each(floodData.ProximityFloodAlerts, function(i, feature){
         "Flood Alerts": floodLayer
     };
    var drawnItems = new L.FeatureGroup();
-   var postcodeRadius = L.circle([searchedForPostcode[1],searchedForPostcode[0]], 1000, {
+   var postcodeRadius = L.circle([searchedForPostcode[1],searchedForPostcode[0]], 500, {
                                 color: 'red', 
                                 fillColor:'red',
                                 fillOpacity: 0.1, 
@@ -181,6 +181,17 @@ $('#house-sales_check').on('change', function(){
   }
 })
 
+$('#custom-search-button').on("click", function(){
+  if ($('#custom-search-button').html() === "Change"){
+    setCustomRadius();
+    $('#custom-search-button').html("Save");
+  }else{
+    saveCustomRadius();
+    $('#custom-search-button').html("Change");
+  }
+
+})
+
 function setCustomRadius(){
    $('.awesome-marker, .leaflet-shadow-pane').css({'opacity':'0.2'});
     postcodeRadius.editing.enable();
@@ -193,6 +204,7 @@ function saveCustomRadius(){
   postcodeRadius.editing.disable();
   map.removeLayer(drawnItems);
   console.log("Radius of drawn circle: " + Math.round(drawnItems.getLayers()[0]._mRadius))
+  $('#user-radius').val(Math.round(drawnItems.getLayers()[0]._mRadius))
 }
 
 
