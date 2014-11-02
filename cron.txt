@@ -1,0 +1,2 @@
+0 10 1 * * php alerts.php
+0 10 * * * php alerts-flood.php

@@ -7,6 +7,7 @@ include "Modules/Crime.php";
 include "Modules/PlanningApplication.php";
 include "Modules/HousePrice.php";
 include "Modules/Floods.php";
+include "Mandrill.php";
 
 // Checking email form
 $emailAdded = false;
@@ -31,6 +32,30 @@ if(isset($_POST['email']) && isset($_POST['user-lat']) &&
             "('$email', '$userLat', '$userLong', $crime, $planning, $houses, $flooding, $radius)");
             
     $emailAdded = true;
+
+    //Send the welcome email.
+    $mandrill = new Mandrill('0OId28XlVG165u_hkAteMg');
+    // Get data
+    $html = file_get_contents( "welcome_email_template.htm" );
+
+    $message = array(
+        'html' => $html,
+        'subject' => "Welcome to Bath Alerts",
+        'from_email' => 'bathalerts@bathhacked.org',
+        'from_name' => 'BathAlerts',
+        'to' => array(
+            array(
+                'email' => $email,
+                'name' => 'Bath Habitant',
+                'type' => 'to'
+            )
+        ),
+        'headers' => array('Reply-To' => 'bathalerts@bathhacked.org'),
+    );
+    $async = false;
+    $ip_pool = 'Main Pool';
+    $result = $mandrill->messages->send($message, $async, $ip_pool);
+
 }
 
 $pc = "";
