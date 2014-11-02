@@ -109,9 +109,17 @@ include_once('header.php');
                             <label for="flood-risk_check">Flood Risks</label>
 
                             <ul>
-                                <?php foreach($floodData['ProximityFloodAlerts'] as $flood) {
-                                    echo '<li>' . $flood['FloodAlert']['Raised'] . ' - Severity: ' . $flood['FloodAlert']['Severity'] . '<br />' . $flood['FloodAlert']['AreaDescription'] . '</li>';
-                                } ?>
+                                <?php 
+                                    foreach($floodData['ProximityFloodAlerts'] as $flood) {
+                                        echo '<li>' . $flood['FloodAlert']['Raised'] . ' - Severity: ' . $flood['FloodAlert']['Severity'] . '<br />' . $flood['FloodAlert']['AreaDescription'] . '</li>';
+                                    }
+
+                                    $no_floods = array_filter($floodData['ProximityFloodAlerts']);
+                                    
+                                    if (empty($no_floods)) {
+                                        echo '<p>Sorry, we don\'t have any flood information for your chosen area at present</p>';
+                                    }
+                                ?>
                             </ul>
                         </div>
 
@@ -120,13 +128,21 @@ include_once('header.php');
                             <label for="planning-applications_check">Planning Applications</label>
 
                             <ul>
-                                <?php foreach($planningData as $plan) {
-                                    echo '<li><strong>' . 
-                                    date("jS F, Y", strtotime(str_replace("T", " ", $plan['casedate']))) . " - " .
-                                    $plan['banesstatus'] . '</strong><br /><span>' . 
-                                    $plan['locationtext'] . '</span><br /><span><em>' . 
-                                    $plan['casetext'] . '</span></em></li>';
-                                } ?>
+                                <?php 
+                                    foreach($planningData as $plan) {
+                                        echo '<li><strong>' . 
+                                        date("jS F, Y", strtotime(str_replace("T", " ", $plan['casedate']))) . " - " .
+                                        $plan['banesstatus'] . '</strong><br /><span>' . 
+                                        $plan['locationtext'] . '</span><br /><span><em>' . 
+                                        $plan['casetext'] . '</span></em></li>';
+                                    }
+
+                                    $no_planning_apps = array_filter($planningData);
+                                    
+                                    if (empty($no_planning_apps)) {
+                                        echo '<p>There haven\'t been any planning applications submitted for your chosen area recently.</p>';
+                                    }
+                                ?>
                             </ul>
                         </div>
 
@@ -135,10 +151,18 @@ include_once('header.php');
                             <label for="crimes_check">Crimes</label>
 
                             <ul>
-                                <?php foreach ($crimeData as $crime) {
-                                    $crime_nice_name = str_replace("-", " ", $crime['crime_category']);
-                                    echo '<li><strong>' . date("F, Y", strtotime(str_replace("T", " ", $crime['month']))) . " " . ' - ' . $crime_nice_name . '</strong><br />' . $crime['street_name'] . '</li>';
-                                } ?>
+                                <?php 
+                                    foreach ($crimeData as $crime) {
+                                        $crime_nice_name = str_replace("-", " ", $crime['crime_category']);
+                                        echo '<li><strong>' . date("F, Y", strtotime(str_replace("T", " ", $crime['month']))) . " " . ' - ' . $crime_nice_name . '</strong><br />' . $crime['street_name'] . '</li>';
+                                    }
+
+                                    $no_crimes = array_filter($crimeData);
+                                    
+                                    if (empty($no_crimes)) {
+                                        echo '<p>There haven\'t been any crimes in your area for a while. That\'s good news!</p>';
+                                    }
+                                ?>
                             </ul>
                         </div>
 
