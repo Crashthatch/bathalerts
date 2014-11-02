@@ -10,8 +10,6 @@
 		<link rel="stylesheet" href="/bower_components/leaflet-awesome-markers/dist/leaflet.awesome-markers.css">
 		<link rel="stylesheet" href="/bower_components/leaflet-draw/dist/leaflet.draw.css">
 		<link rel="stylesheet" href="/library/css/map.css">
-		<link rel="stylesheet" href="/bower_components/leaflet-markerClusterer/dist/MarkerCluster.css">
-		<link rel="stylesheet" href="/bower_components/leaflet-markerClusterer/dist/MarkerCluster.Default.css">
 
 		<!-- JS -->
 		<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
