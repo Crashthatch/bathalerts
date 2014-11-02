@@ -158,7 +158,8 @@ var map = L.map('map',{
                               }).addTo(drawnItems);
 
     L.control.layers(baseLayers, overlays).addTo(map);
-    var postcodeMarker = L.marker([searchedForPostcode[1],searchedForPostcode[0]], {icon: postcodeIcon, zIndexOffset:999}).bindPopup('Your postcode').addTo(map);
+    var postcodeMarker = L.marker([searchedForPostcode[1],searchedForPostcode[0]], {icon: postcodeIcon, zIndexOffset:999}).bindPopup('Your location').addTo(map);
+    bounds.extend([searchedForPostcode[1],searchedForPostcode[0]]);
     map.fitBounds(bounds);
    // map.addLayer(clusterLayer);
 
@@ -239,18 +240,26 @@ $('#custom-search-button').on("click", function(){
 
 })
 
+var editing_radius;
+map.on("zoomend", function(e) {
+ if (editing_radius === true)  {
+    $('.marker-cluster').addClass('fade-markers');
+  }
+});
+
 function setCustomRadius(){
    //$('.awesome-marker, .leaflet-shadow-pane').css({'opacity':'0.2'});
-    $('.awesome-marker, .leaflet-shadow-pane, .marker-cluster').toggleClass('fade-markers');
+    $('.awesome-marker, .leaflet-shadow-pane, .marker-cluster').addClass('fade-markers');
     postcodeRadius.editing.enable();
     postcodeMarker.closePopup();
     map.addLayer(drawnItems);
     $('.leaflet-editing-icon').addClass('radiusDragPoints');
+    editing_radius = true;
 }
 
 function saveCustomRadius(){
   //$('.awesome-marker, .leaflet-shadow-pane').css({'opacity':'1'});
-  $('.awesome-marker, .leaflet-shadow-pane, .marker-cluster').toggleClass('fade-markers');
+  $('.awesome-marker, .leaflet-shadow-pane, .marker-cluster').removeClass('fade-markers');
   postcodeRadius.editing.disable();
   map.removeLayer(drawnItems);
   console.log("Radius of drawn circle: " + Math.round(drawnItems.getLayers()[0]._mRadius) + "m around "+drawnItems.getLayers()[0]._latlng.lat+','+drawnItems.getLayers()[0]._latlng.lng)
@@ -260,6 +269,7 @@ function saveCustomRadius(){
   postcodeMarker.setLatLng([drawnItems.getLayers()[0]._latlng.lat,drawnItems.getLayers()[0]._latlng.lng]);
   postcodeMarker.unbindPopup().bindPopup("Your custom location");
   //window.location = "/report/" + drawnItems.getLayers()[0]._latlng.lat + ',' + drawnItems.getLayers()[0]._latlng.lng;
+  editing_radius = false;
   $('form').submit();
 }
 
