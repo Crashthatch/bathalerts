@@ -2,9 +2,6 @@ Options +FollowSymLinks
 RewriteEngine On 
 RewriteBase /
 
-#RewriteCond %{REQUEST_URI} ^/report/.*,.*$
-#RewriteRule ^report/([^/]*),([^/]*)$ /report.php?lat=$1&long=$2 [L,NC]
-
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^report/([^/]*)$ /report.php?pc=$1 [L,NC]
