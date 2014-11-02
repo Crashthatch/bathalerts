@@ -6,10 +6,10 @@ class PlanningApplication extends Module {
     public $url = "https://data.bathhacked.org/resource/uyh5-eygi.json";
     
     function getData() {
-        
-        echo date("d/m/Y");
-        
-        $this->url .= '?$where=casedate>%2709/01/2014%2012:00:00%20AM%27';
+        $date = new DateTime(date("Y-m-d H:i:s"));
+        $date->modify("last day last month");
+        $date = $date->format("Y-m-d") . "T00:00:00";
+        $this->url .= '?$where=casedate>%27' . $date . '%27';
         $aps = json_decode($this->fetch());
         $relevant = array();
         foreach($aps as $ap) {
