@@ -9,15 +9,24 @@ include "Modules/HousePrice.php";
 
 // Checking email form
 $emailAdded = false;
-if(isset($_POST['email']) && isset($_POST['postcode']) && isset($_POST['crime']) && isset($_POST['planning']) && isset($_POST['houses'])) {
-    $email = $conn->real_escape_string($_POST['email']);
-    $postcode = $conn->real_escape_string($_POST['postcode']);
+if(isset($_POST['email']) && isset($_POST['user-lat']) && 
+        isset($_POST['user-long']) && isset($_POST['crime']) && 
+        isset($_POST['planning']) && isset($_POST['houses'])) {
+        
+    $email    = $conn->real_escape_string($_POST['email']);
+    $userLat  = $conn->real_escape_string($_POST['user-lat']);
+    $userLong = $conn->real_escape_string($_POST['user-long']);
     
-    $houses = ($_POST['crime'] == 'Yes' ? "TRUE" : "FALSE");
-    $crime = ($_POST['crime'] == 'Yes' ? "TRUE" : "FALSE");
+    $houses   = ($_POST['crime'] == 'Yes' ? "TRUE" : "FALSE");
+    $crime    = ($_POST['crime'] == 'Yes' ? "TRUE" : "FALSE");
     $planning = ($_POST['planning'] == 'Yes' ? "TRUE" : "FALSE");
     
-    $conn->query("INSERT IGNORE INTO Users (`Email`, `PostCode`, `Crime`, `Planning`, `Houses`) VALUES ('$email', '$postcode', $crime, $planning, $houses)");
+    $conn->query(
+        "INSERT IGNORE INTO Users " . 
+            "(`Email`, `UserLat`, `UserLong`, `Crime`, `Planning`, `Houses`) " . 
+        "VALUES " . 
+            "('$email', '$userLat', '$userLong', $crime, $planning, $houses)");
+            
     $emailAdded = true;
 }
 
@@ -41,7 +50,6 @@ $houseData = $hd->getData();
 include_once('header.php');
 
 ?>
-
     <body class="report">
         <header>
             <div class="wrap">
@@ -73,7 +81,6 @@ include_once('header.php');
         <section id="list-section">
             <div class="wrap">
                 <h3>Customise your monthly email alerts by ticking the sections on or off below.</h3>
-
                 <form method="post">
                     <div class="inner-form">
                         <div id="planning-applications" class="fourcol first">
@@ -81,9 +88,15 @@ include_once('header.php');
                             <label for="planning-applications_check">Planning Applications</label>
 
                             <ul>
-                                <?php foreach ($planningData as $plan) {
-                                    echo '<li><strong>' . $plan['casedate'] . ' - ' . $plan['banesstatus'] . '</strong><br /><span>' . $plan['locationtext'] . '</span><br /><span><em>' . $plan['casetext'] . '</em></span></li>';
-                                } ?>
+                                <?php 
+                                foreach($planningData as $plan) {
+                                    echo '<li><strong>' . 
+                                            date("F jS, Y", strtotime(str_replace("T", " ", $plan['casedate']))) . " " .                                  
+                                            $plan['banesstatus'] . '</strong><br /><span>' . 
+                                            $plan['locationtext'] . '</span><br /><span>' . 
+                                            $plan['casetext'] . '</span></li>';
+                                } 
+                                ?>
                             </ul>
                         </div>
 
@@ -106,16 +119,23 @@ include_once('header.php');
                             <label for="house-sales_check">House Sales</label>
 
                             <ul>
-                                <?php foreach ($houseData as $houses) {
-                                    echo '<li><strong>' . $houses['date_of_transfer'] . ' - £' . $houses['price'] . '</strong><br />' . strtolower($houses['secondary_addressable_object_name']) . ', ' . strtolower($houses['locality']) . ', ' . strtolower($houses['district']) . ', <span>' . strtolower($houses['postcode']) . '</span></li>';
+                                <?php foreach($houseData as $houses) {
+                                    echo '<li><strong>' . 
+                                        $houses['date_of_transfer'] . ' - £' . 
+                                        $houses['price'] . '</strong><br />' . 
+                                        strtolower($houses['secondary_addressable_object_name']) . ', ' . 
+                                        strtolower($houses['locality']) . ', ' . 
+                                        strtolower($houses['district']) . ', <span>' . 
+                                        strtolower($houses['postcode']) . '</span></li>';
                                 } ?>
                             </ul>
                         </div>
                     </div>
 
                     <div class="form-elements">
+                        <input type="hidden" name="user-lat" id="user-lat-hidden" value="<?php echo $pc->lat; ?>" />
+                        <input type="hidden" name="user-long" id="user-long-hidden" value="<?php echo $pc->long; ?>" />
                         <input type="email" name="email" placeholder="Sign-up for email alerts" />
-                        <input type="text" name="postcode" id="pc-hidden" value="<?php echo $pc->toString(); // This may break if pc is not a post code ?>" />
                         <button type="submit" class="btn btn-success">
                             <i class="fa fa-envelope-o"></i>
                         </button>
