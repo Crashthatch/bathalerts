@@ -41,7 +41,23 @@ h2 {
 	margin-bottom: 30px;
 
 	button {
-		margin-top: 28px;
+		margin-top: 26px;
+		background: $blue;
+		border: none;
+		border-radius: 3px;
+		padding: 8px;
+		box-shadow: 0 1px 2px $text;
+		outline: none;
+		font-size: 15px;
+		color: $white;
+
+		i {
+			margin-right: 5px;
+		}
+
+		&:hover {
+			background: lighten($blue, 5%);
+		}
 	}
 }
 
@@ -54,14 +70,16 @@ form {
 	}
 
 	.form-elements {
-		padding-top: 50px;
+		margin-top: 25px;
+		padding-top: 45px;
+		border-top: solid 1px $text;
 
 		div {
 			margin: 0 auto;
 			width: 550px;
 
 			& + div {
-				width: 255px;
+				width: 260px;
 				
 				input[type="email"] {
 					margin-top: 10px;
@@ -278,7 +296,7 @@ body.report {
 			ul li { 
 				&:before {
 					content: "\f15c";
-					color: #DF0804;
+					color: $red;
 				}
 
 				span {
@@ -296,7 +314,7 @@ body.report {
 
 				&:before {
 					content: "\f0e3";
-					color: #00A7DA;
+					color: $blue;
 				}
 			}
 		}
@@ -307,7 +325,7 @@ body.report {
 
 				&:before {
 					content: "\f154";
-					color: #54B61E;
+					color: $green;
 				}
 
 				span {

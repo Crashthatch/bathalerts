@@ -97,13 +97,13 @@ include_once('header.php');
             <div class="wrap">
                 <div class="subscribe-info">
                     <h3 class="first">Customise your monthly email alerts by ticking the sections on or off below.</h3>
-                    <button class="last">Create Alert</button>
+                    <button class="last"><i class="fa fa-envelope-o"></i> Create Alert</button>
                 </div>
 
                 <form method="post">
                     <div class="inner-form">
                         <div id="flood-risk" class="clearfix">
-                            <input type="checkbox" name="floods" id="flood-risk_check" checked>
+                            <input type="checkbox" name="flooding" id="flood-risk_check" checked>
                             <label for="flood-risk_check">Flood Risk</label>
 
                             <ul>
