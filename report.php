@@ -120,10 +120,12 @@ include('header.php');
 
                             <ul>
                                 <?php foreach($houseData as $houses) {
+                                    $addr = (isset($houses['secondary_addressable_object_name']) ? 
+                                        $houses['secondary_addressable_object_name'] : "");
                                     echo '<li><strong>' . 
-                                        $houses['date_of_transfer'] . ' - £' . 
-                                        $houses['price'] . '</strong><br />' . 
-                                        strtolower($houses['secondary_addressable_object_name']) . ', ' . 
+                                        date("F jS, Y", strtotime(str_replace("T", " ", $houses['date_of_transfer']))) . ' - £' . 
+                                        number_format($houses['price']) . '</strong><br />' . 
+                                        ($addr ? strtolower($addr) . ', ' : "") . 
                                         strtolower($houses['locality']) . ', ' . 
                                         strtolower($houses['district']) . ', <span>' . 
                                         strtolower($houses['postcode']) . '</span></li>';
