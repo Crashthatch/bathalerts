@@ -25,7 +25,7 @@ try {
 
         $planningHtml = "";
         if($row['Planning']) {
-            $pa = new PlanningApplication($pc);
+            $pa = new PlanningApplication($pc, $radius);
             $planningData = $pa->getData();
             foreach($planningData as $plan) {
                 // Build pa html rows
@@ -53,7 +53,7 @@ try {
 
         $houseHtml = "";
         if($row['Houses']) {
-            $hd = new HousePrice($pc);
+            $hd = new HousePrice($pc, $radius);
             $houseData = $hd->getData();        
             foreach($houseData as $houses) {
                 $addr = (isset($houses['secondary_addressable_object_name']) ?
