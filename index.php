@@ -30,5 +30,7 @@
 	    		</form>
 	    	</section>
 	    </div>
-    </body>
-</html>
+
+		<?php 
+		$current_page = basename(__FILE__, '.php');
+		include('footer.php'); ?>

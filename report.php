@@ -38,7 +38,7 @@ $crimeData = $crimeGetter->getData();
 $hd = new HousePrice($pc);
 $houseData = $hd->getData();
 
-include('header.php');
+include_once('header.php');
 
 ?>
 
@@ -75,7 +75,7 @@ include('header.php');
                 <h3>Customise your monthly email alerts by ticking the sections on or off below.</h3>
 
                 <form method="post">
-                    <div class="clearfix">
+                    <div class="inner-form">
                         <div id="planning-applications" class="fourcol first">
                             <input type="checkbox" name="planning-applications" id="planning-applications_check" checked>
                             <label for="planning-applications_check">Planning Applications</label>
@@ -113,19 +113,15 @@ include('header.php');
                         </div>
                     </div>
 
-                    <input type="email" name="email" placeholder="Sign-up for email alerts" />
-                    <input type="text" name="postcode" id="pc-hidden" value="<?php echo $pc->toString(); // This may break if pc is not a post code ?>" />
-                    <button type="submit" class="btn btn-success">
-                        <i class="fa fa-envelope-o"></i>
-                    </button>
+                    <div class="form-elements">
+                        <input type="email" name="email" placeholder="Sign-up for email alerts" />
+                        <input type="text" name="postcode" id="pc-hidden" value="<?php echo $pc->toString(); // This may break if pc is not a post code ?>" />
+                        <button type="submit" class="btn btn-success">
+                            <i class="fa fa-envelope-o"></i>
+                        </button>
+                    </div>
                 </form>
             </div>
         </section>        
 
-        <footer>
-            <script src="/library/js/map.js"></script>
-
-            <p class="wrap">BathAlerts 2014. Built using open data and coffee.</p>
-        </footer>
-    </body>
-</html>
+        <?php include_once('footer.php'); ?>
