@@ -33,12 +33,15 @@ if(isset($_POST['email']) && isset($_POST['user-lat']) &&
 }
 
 $pc = "";
-if(isset($_GET['pc'])) {
+if (isset($_GET['pc'])) {
     $pc = new Point($_GET['pc']);
+
     if(!$pc->exists()) {
         header('Location: /index.php?unknownPostcode=1');
     }
-} else {
+} 
+
+else {
     header('Location: /index.php?noPostcode=1') ;
 }
 
@@ -66,7 +69,13 @@ include_once('header.php');
 
         <section id="map-section">
             <div class="wrap">
-                <h3>Showing information local to <span><?php echo $pc->toString(); ?></span><a href="/">Change</a></h3>
+                <div class="first">
+                    <h3>Showing information local to <span><?php echo $pc->toString(); ?></span><a href="/">Change</a></h3>
+                </div>
+
+                <div class="last">
+                    <h3>Custom search distance</span><a href="">Change</a></h3>
+                </div>
             </div>
 
             <?php if ($pc) { ?>
