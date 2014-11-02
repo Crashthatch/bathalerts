@@ -17,7 +17,7 @@
         <script src="/bower_components/leaflet.awesome-markers/dist/leaflet.awesome-markers.min.js"></script>
         <script src="/bower_components/leaflet.draw/dist/leaflet.draw.js"></script>
         <script src="/bower_components/leaflet.draw/src/edit/handler/Edit.Circle.js"></script>
-
+        <script src="/library/js/scripts.min.js"></script>
 
         <?php if (isset($pc)) { ?>
         	<title>BathAlerts for <?php echo $pc->toString(); ?></title>
