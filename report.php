@@ -70,13 +70,11 @@ include('header.php');
                     var crimeData = <?php echo json_encode($crimeData); ?>;
                     var planningData = <?php echo json_encode($planningData); ?>;
                     var houseData = <?php echo json_encode($houseData); ?>;
-
                     var searchedForPostcode = <?php echo json_encode(array($pc->lat, $pc->long)); ?>;
                 </script>
 
                 <div id="map"></div>
-                <script src="/library/js/map.js"></script>
-            <?php } else {} ?>
+            <?php } ?>
         </section>
 
         <section id="list-section">
@@ -89,7 +87,7 @@ include('header.php');
 
                     <ul>
                         <?php foreach ($planningData as $plan) {
-                            echo '<li>' . $plan['casedate'] . ' - ' . $plan['banesstatus'] . '<br />' . $plan['locationtext'] . '<br />' . $plan['casetext'] . '</li>';
+                            echo '<li><strong>' . $plan['casedate'] . ' - ' . $plan['banesstatus'] . '</strong><br /><span>' . $plan['locationtext'] . '</span><br /><span>' . $plan['casetext'] . '</span></li>';
                         } ?>
                     </ul>
                 </div>
@@ -99,9 +97,12 @@ include('header.php');
                     <label for="crimes_check">Crimes</label>
 
                     <ul>
-                        <?php foreach ($crimeData as $crime) {
-                            echo '<li>' . $crime['crime_category'] . '<br />' . $crime['street_name'] . '</li>';
-                        } ?>
+                        <?php 
+                            foreach ($crimeData as $crime) {
+                                $crime_nice_name = str_replace("-", " ", $crime['crime_category']);
+                                echo '<li><strong>' . $crime_nice_name . '</strong><br />' . $crime['street_name'] . '</li>';
+                            }
+                        ?>
                     </ul>
                 </div>
 
@@ -111,13 +112,13 @@ include('header.php');
 
                     <ul>
                         <?php foreach ($houseData as $houses) {
-                            echo '<li>' . $houses['date_of_transfer'] . ' - £' . $houses['price'] . '<br />' . $houses['secondary_addressable_object_name'] . ', ' . $houses['locality'] . ', ' . $houses['district'] . ', ' . $houses['postcode'] . '</li>';
+                            echo '<li><strong>' . $houses['date_of_transfer'] . ' - £' . $houses['price'] . '</strong><br />' . strtolower($houses['secondary_addressable_object_name']) . ', ' . strtolower($houses['locality']) . ', ' . strtolower($houses['district']) . ', <span>' . strtolower($houses['postcode']) . '</span></li>';
                         } ?>
                     </ul>
                 </div>
             </div>
         </section>
-
+        <script src="/library/js/map.js"></script>
         <footer></footer>
     </body>
 </html>

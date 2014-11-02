@@ -218,16 +218,46 @@ body.report {
 			}
 		}
 
-		#planning-applications ul li:before {
-			content: "\f15c";
+		#planning-applications {
+			ul li { 
+				&:before {
+					content: "\f15c";
+					color: #DF0804;
+				}
+
+				span {
+					display: inline-block;
+					padding-top: 5px;
+				}
+			}
 		}
 
-		#crimes ul li:before {
-			content: "\f0e3";
+		#crimes {
+			ul li {
+				strong {
+					text-transform: capitalize;
+				}
+
+				&:before {
+					content: "\f0e3";
+					color: #00A7DA;
+				}
+			}
 		}
 
-		#house-sales ul li:before {
-			content: "\f154";
+		#house-sales {
+			ul li {
+				text-transform: capitalize;
+
+				&:before {
+					content: "\f154";
+					color: #54B61E;
+				}
+
+				span {
+					text-transform: uppercase;
+				}
+			}
 		}
 	}
 }
