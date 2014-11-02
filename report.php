@@ -106,11 +106,11 @@ include_once('header.php');
                     <div class="inner-form">
                         <div id="flood-risk" class="clearfix">
                             <input type="checkbox" name="flooding" id="flood-risk_check" value="Yes" checked>
-                            <label for="flood-risk_check">Flood Risk</label>
+                            <label for="flood-risk_check">Flood Risks</label>
 
                             <ul>
-                                <?php foreach($floodData as $flood) {
-                                    echo '<li></li>';
+                                <?php foreach($floodData['ProximityFloodAlerts'] as $flood) {
+                                    echo '<li>' . $flood['FloodAlert']['Raised'] . ' - Severity: ' . $flood['FloodAlert']['Severity'] . '<br />' . $flood['FloodAlert']['AreaDescription'] . '</li>';
                                 } ?>
                             </ul>
                         </div>
