@@ -6,6 +6,7 @@ include "Modules/Module.php";
 include "Modules/Crime.php";
 include "Modules/PlanningApplication.php";
 include "Modules/HousePrice.php";
+include "Modules/Floods.php";
 
 // Checking email form
 $emailAdded = false;
@@ -16,7 +17,8 @@ if(isset($_POST['email']) && isset($_POST['postcode']) && isset($_POST['crime'])
     $houses = ($_POST['crime'] == 'Yes' ? "TRUE" : "FALSE");
     $crime = ($_POST['crime'] == 'Yes' ? "TRUE" : "FALSE");
     $planning = ($_POST['planning'] == 'Yes' ? "TRUE" : "FALSE");
-    
+    $flooding = ($_POST['flooding'] == 'Yes' ? "TRUE" : "FALSE");
+
     $conn->query("INSERT IGNORE INTO Users (`Email`, `PostCode`, `Crime`, `Planning`, `Houses`) VALUES ('$email', '$postcode', $crime, $planning, $houses)");
     $emailAdded = true;
 }
@@ -37,6 +39,8 @@ $crimeGetter = new Crime($pc);
 $crimeData = $crimeGetter->getData();
 $hd = new HousePrice($pc);
 $houseData = $hd->getData();
+$floodGetter = new Floods($pc);
+$floodData = $floodGetter->getData();
 
 include('header.php');
 
@@ -67,6 +71,7 @@ include('header.php');
             <?php if ($pc) { ?>
                 <script type="application/javascript">
                     var emailAdded = <?php echo ($emailAdded ? "true" : "false") ?>;
+                    var floodData = <?php echo json_encode($floodData); ?>;
                     var crimeData = <?php echo json_encode($crimeData); ?>;
                     var planningData = <?php echo json_encode($planningData); ?>;
                     var houseData = <?php echo json_encode($houseData); ?>;
