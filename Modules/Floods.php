@@ -34,7 +34,7 @@ class Floods extends Module {
 
         $loginResult = curl_exec($ch);
 
-        $requestUrl = "https://apifa.shoothill.com/api/proximityfloodalerts/$lat/$long/100000";
+        $requestUrl = "https://apifa.shoothill.com/api/proximityfloodalerts/$lat/$long/".$this->radius;
         curl_setopt($ch, CURLOPT_HTTPGET, 1);
         curl_setopt($ch, CURLOPT_URL, $requestUrl );
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
