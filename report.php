@@ -6,6 +6,7 @@ include "Modules/Module.php";
 include "Modules/Crime.php";
 include "Modules/PlanningApplication.php";
 include "Modules/HousePrice.php";
+include "Modules/Floods.php";
 
 // Checking email form
 $emailAdded = false;
@@ -20,12 +21,13 @@ if(isset($_POST['email']) && isset($_POST['user-lat']) &&
     $houses   = ($_POST['crime'] == 'Yes' ? "TRUE" : "FALSE");
     $crime    = ($_POST['crime'] == 'Yes' ? "TRUE" : "FALSE");
     $planning = ($_POST['planning'] == 'Yes' ? "TRUE" : "FALSE");
+    $flooding = ($_POST['flooding'] == 'Yes' ? "TRUE" : "FALSE");
     
     $conn->query(
         "INSERT IGNORE INTO Users " . 
-            "(`Email`, `UserLat`, `UserLong`, `Crime`, `Planning`, `Houses`) " . 
+            "(`Email`, `UserLat`, `UserLong`, `Crime`, `Planning`, `Houses`, `Flooding`) " .
         "VALUES " . 
-            "('$email', '$userLat', '$userLong', $crime, $planning, $houses)");
+            "('$email', '$userLat', '$userLong', $crime, $planning, $houses, $flooding)");
             
     $emailAdded = true;
 }
@@ -46,6 +48,8 @@ $crimeGetter = new Crime($pc);
 $crimeData = $crimeGetter->getData();
 $hd = new HousePrice($pc);
 $houseData = $hd->getData();
+$floodGetter = new Floods($pc);
+$floodData = $floodGetter->getData();
 
 include_once('header.php');
 
@@ -68,6 +72,7 @@ include_once('header.php');
             <?php if ($pc) { ?>
                 <script type="application/javascript">
                     var emailAdded = <?php echo ($emailAdded ? "true" : "false") ?>;
+                    var floodData = <?php echo json_encode($floodData); ?>;
                     var crimeData = <?php echo json_encode($crimeData); ?>;
                     var planningData = <?php echo json_encode($planningData); ?>;
                     var houseData = <?php echo json_encode($houseData); ?>;
@@ -116,10 +121,12 @@ include_once('header.php');
 
                             <ul>
                                 <?php foreach($houseData as $houses) {
+                                    $addr = (isset($houses['secondary_addressable_object_name']) ? 
+                                        $houses['secondary_addressable_object_name'] : "");
                                     echo '<li><strong>' . 
-                                    $houses['date_of_transfer'] . ' - £' . 
-                                    $houses['price'] . '</strong><br />' . 
-                                    strtolower($houses['secondary_addressable_object_name']) . ', ' . 
+                                    date("F jS, Y", strtotime(str_replace("T", " ", $houses['date_of_transfer']))) . ' - £' . 
+                                    number_format($houses['price']) . '</strong><br />' . 
+                                    ($addr ? strtolower($addr) . ', ' : "") . 
                                     strtolower($houses['locality']) . ', ' . 
                                     strtolower($houses['district']) . ', <span>' . 
                                     strtolower($houses['postcode']) . '</span></li>';
