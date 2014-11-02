@@ -7,7 +7,7 @@ body {
 }
 
 body {
-	background-image: url('library/images/bath-bg.jpg');
+	background-image: url('../images/bath-bg.jpg');
 	background-position: contain;
 	background-attachment: fixed;
 	background-repeat: no-repeat;
@@ -36,9 +36,17 @@ h2 {
 }
 
 form {
+	@extend %clearfix;
+	margin-bottom: 0;
 
-	&.last {
-		float: right;
+	.inner-form {
+		@extend %clearfix;
+	}
+
+	.form-elements {
+		width: 255px;
+		margin: 0 auto;
+		padding-top: 50px;
 	}
 
 	input[type="text"],
@@ -117,7 +125,16 @@ form {
 	}
 }
 
+footer {
+	background: $lightgrey;
+	padding: 75px 0 15px 0;
 
+	p {
+		margin: 0 0 0 0;
+		font-size: 15px;
+		text-align: center;
+	}
+}
 
 // Home Page
 body.home {
@@ -173,7 +190,7 @@ body.report {
 
 	// Lists
 	#list-section {
-		background: #f7f7f7;
+		background: $lightgrey;
 		padding-bottom: 40px;
 
 		h3 {
