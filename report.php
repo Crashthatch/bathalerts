@@ -13,7 +13,7 @@ $emailAdded = false;
 if(isset($_POST['email']) && isset($_POST['user-lat']) && 
         isset($_POST['user-long']) && isset($_POST['crime']) && 
         isset($_POST['planning']) && isset($_POST['houses']) &&
-        isset($_POST['flooding']) && isset($_POST['radius'])) {
+        isset($_POST['flooding']) && isset($_POST['radius']) && $_POST['email'] != "") {
         
     $email    = $conn->real_escape_string($_POST['email']);
     $userLat  = $conn->real_escape_string($_POST['user-lat']);
