@@ -1401,6 +1401,793 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/bower_components\/leaflet.markerclusterer\/build\/build.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/build\/build.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/build\/min\/build-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/build\/deps.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/build\/deps.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/build\/min\/deps-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/build\/hintrc.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/build\/hintrc.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/build\/min\/hintrc-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/CHANGELOG.md": {
+		"enableFootnoteSupport": 0,
+		"enableSmartyPants": 1,
+		"expandTabs": 1,
+		"fileType": 4096,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/CHANGELOG.md",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/CHANGELOG.html",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/leaflet.markerclusterer\/dist\/leaflet.markercluster-src.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/dist\/leaflet.markercluster-src.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/dist\/min\/leaflet.markercluster-src-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/dist\/leaflet.markercluster.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/dist\/leaflet.markercluster.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/dist\/min\/leaflet.markercluster-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/dist\/MarkerCluster.css": {
+		"fileType": 16,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/dist\/MarkerCluster.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/leaflet.markerclusterer\/dist\/MarkerCluster.Default.css": {
+		"fileType": 16,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/dist\/MarkerCluster.Default.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/leaflet.markerclusterer\/example\/geojson-sample.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/example\/geojson-sample.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/example\/min\/geojson-sample-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/example\/geojson.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/example\/geojson.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/leaflet.markerclusterer\/example\/marker-clustering-convexhull.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/example\/marker-clustering-convexhull.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/leaflet.markerclusterer\/example\/marker-clustering-custom.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/example\/marker-clustering-custom.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/leaflet.markerclusterer\/example\/marker-clustering-everything.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/example\/marker-clustering-everything.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/leaflet.markerclusterer\/example\/marker-clustering-geojson.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/example\/marker-clustering-geojson.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/leaflet.markerclusterer\/example\/marker-clustering-realworld-maxzoom.388.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/example\/marker-clustering-realworld-maxzoom.388.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/leaflet.markerclusterer\/example\/marker-clustering-realworld-mobile.388.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/example\/marker-clustering-realworld-mobile.388.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/leaflet.markerclusterer\/example\/marker-clustering-realworld.10000.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/example\/marker-clustering-realworld.10000.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/leaflet.markerclusterer\/example\/marker-clustering-realworld.388.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/example\/marker-clustering-realworld.388.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/leaflet.markerclusterer\/example\/marker-clustering-realworld.50000.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/example\/marker-clustering-realworld.50000.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/leaflet.markerclusterer\/example\/marker-clustering-singlemarkermode.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/example\/marker-clustering-singlemarkermode.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/leaflet.markerclusterer\/example\/marker-clustering-spiderfier.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/example\/marker-clustering-spiderfier.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/leaflet.markerclusterer\/example\/marker-clustering-zoomtobounds.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/example\/marker-clustering-zoomtobounds.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/leaflet.markerclusterer\/example\/marker-clustering-zoomtoshowlayer.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/example\/marker-clustering-zoomtoshowlayer.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/leaflet.markerclusterer\/example\/marker-clustering.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/example\/marker-clustering.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/leaflet.markerclusterer\/example\/mobile.css": {
+		"fileType": 16,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/example\/mobile.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/leaflet.markerclusterer\/example\/old-bugs\/add-1000-after.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/example\/old-bugs\/add-1000-after.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/leaflet.markerclusterer\/example\/old-bugs\/add-markers-offscreen.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/example\/old-bugs\/add-markers-offscreen.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/leaflet.markerclusterer\/example\/old-bugs\/add-remove-before-addtomap.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/example\/old-bugs\/add-remove-before-addtomap.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/leaflet.markerclusterer\/example\/old-bugs\/animationless-zoom.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/example\/old-bugs\/animationless-zoom.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/leaflet.markerclusterer\/example\/old-bugs\/disappearing-marker-from-spider.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/example\/old-bugs\/disappearing-marker-from-spider.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/leaflet.markerclusterer\/example\/old-bugs\/doesnt-update-cluster-on-bottom-level.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/example\/old-bugs\/doesnt-update-cluster-on-bottom-level.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/leaflet.markerclusterer\/example\/old-bugs\/remove-add-clustering.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/example\/old-bugs\/remove-add-clustering.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/leaflet.markerclusterer\/example\/old-bugs\/remove-when-spiderfied.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/example\/old-bugs\/remove-when-spiderfied.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/leaflet.markerclusterer\/example\/old-bugs\/removelayer-after-remove-from-map.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/example\/old-bugs\/removelayer-after-remove-from-map.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/leaflet.markerclusterer\/example\/old-bugs\/setView-doesnt-remove.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/example\/old-bugs\/setView-doesnt-remove.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/leaflet.markerclusterer\/example\/old-bugs\/zoomtoshowlayer-doesnt-need-to-zoom.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/example\/old-bugs\/zoomtoshowlayer-doesnt-need-to-zoom.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/leaflet.markerclusterer\/example\/realworld.10000.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/example\/realworld.10000.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/example\/min\/realworld.10000-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/example\/realworld.388.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/example\/realworld.388.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/example\/min\/realworld.388-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/example\/realworld.50000.1.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/example\/realworld.50000.1.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/example\/min\/realworld.50000.1-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/example\/realworld.50000.2.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/example\/realworld.50000.2.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/example\/min\/realworld.50000.2-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/example\/screen.css": {
+		"fileType": 16,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/example\/screen.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/leaflet.markerclusterer\/Jakefile.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/Jakefile.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/min\/Jakefile-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/README.md": {
+		"enableFootnoteSupport": 0,
+		"enableSmartyPants": 1,
+		"expandTabs": 1,
+		"fileType": 4096,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/README.md",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/README.html",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/leaflet.markerclusterer\/spec\/after.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/after.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/min\/after-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/spec\/expect.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/expect.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/min\/expect-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/spec\/happen.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/happen.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/min\/happen-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/spec\/index.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/index.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/bower_components\/leaflet.markerclusterer\/spec\/karma.conf.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/karma.conf.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/min\/karma.conf-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/spec\/sinon.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/sinon.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/min\/sinon-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/spec\/suites\/AddLayer.MultipleSpec.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/AddLayer.MultipleSpec.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/min\/AddLayer.MultipleSpec-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/spec\/suites\/AddLayer.SingleSpec.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/AddLayer.SingleSpec.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/min\/AddLayer.SingleSpec-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/spec\/suites\/AddLayersSpec.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/AddLayersSpec.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/min\/AddLayersSpec-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/spec\/suites\/ChildChangingIconSupportSpec.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/ChildChangingIconSupportSpec.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/min\/ChildChangingIconSupportSpec-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/spec\/suites\/CircleMarkerSupportSpec.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/CircleMarkerSupportSpec.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/min\/CircleMarkerSupportSpec-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/spec\/suites\/CircleSupportSpec.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/CircleSupportSpec.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/min\/CircleSupportSpec-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/spec\/suites\/clearLayersSpec.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/clearLayersSpec.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/min\/clearLayersSpec-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/spec\/suites\/DistanceGridSpec.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/DistanceGridSpec.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/min\/DistanceGridSpec-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/spec\/suites\/eachLayerSpec.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/eachLayerSpec.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/min\/eachLayerSpec-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/spec\/suites\/eventsSpec.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/eventsSpec.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/min\/eventsSpec-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/spec\/suites\/getBoundsSpec.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/getBoundsSpec.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/min\/getBoundsSpec-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/spec\/suites\/getLayersSpec.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/getLayersSpec.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/min\/getLayersSpec-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/spec\/suites\/getVisibleParentSpec.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/getVisibleParentSpec.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/min\/getVisibleParentSpec-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/spec\/suites\/LeafletSpec.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/LeafletSpec.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/min\/LeafletSpec-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/spec\/suites\/NonPointSpec.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/NonPointSpec.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/min\/NonPointSpec-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/spec\/suites\/onAddSpec.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/onAddSpec.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/min\/onAddSpec-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/spec\/suites\/onRemoveSpec.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/onRemoveSpec.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/min\/onRemoveSpec-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/spec\/suites\/QuickHullSpec.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/QuickHullSpec.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/min\/QuickHullSpec-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/spec\/suites\/RemoveLayerSpec.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/RemoveLayerSpec.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/min\/RemoveLayerSpec-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/spec\/suites\/SpecHelper.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/SpecHelper.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/min\/SpecHelper-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/spec\/suites\/spiderfySpec.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/spiderfySpec.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/min\/spiderfySpec-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/spec\/suites\/zoomAnimationSpec.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/zoomAnimationSpec.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/spec\/suites\/min\/zoomAnimationSpec-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/src\/copyright.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/src\/copyright.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/src\/min\/copyright-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/src\/DistanceGrid.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/src\/DistanceGrid.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/src\/min\/DistanceGrid-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/src\/MarkerCluster.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/src\/MarkerCluster.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/src\/min\/MarkerCluster-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/src\/MarkerCluster.QuickHull.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/src\/MarkerCluster.QuickHull.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/src\/min\/MarkerCluster.QuickHull-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/src\/MarkerCluster.Spiderfier.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/src\/MarkerCluster.Spiderfier.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/src\/min\/MarkerCluster.Spiderfier-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/bower_components\/leaflet.markerclusterer\/src\/MarkerClusterGroup.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/src\/MarkerClusterGroup.js",
+		"outputAbbreviatedPath": "\/bower_components\/leaflet.markerclusterer\/src\/min\/MarkerClusterGroup-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
 	"\/bower_components\/normalize-scss\/_normalize.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
@@ -1468,20 +2255,20 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/email_template.htm": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/email_template.htm",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/footer.php": {
 		"fileType": 8192,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/footer.php",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
-	"\/header.php": {
-		"fileType": 8192,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/header.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -1514,17 +2301,6 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
-		},
-	"\/library\/js\/map.js": {
-		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/library\/js\/map.js",
-		"outputAbbreviatedPath": "\/library\/js\/min\/map-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
 		},
 	"\/library\/js\/scripts.js": {
 		"fileType": 64,
@@ -1562,22 +2338,6 @@
 		"outputStyle": 3,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 1,
-		"useLibsass": 0
-		},
-	"\/library\/sass\/variables.scss": {
-		"createSourceMap": 0,
-		"debugStyle": 0,
-		"decimalPrecision": 10,
-		"fileType": 4,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/library\/sass\/variables.scss",
-		"outputAbbreviatedPath": "\/library\/css\/variables.css",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
 		"useLibsass": 0
 		},
 	"\/Mandrill.php": {
@@ -1733,6 +2493,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/Modules\/Crime.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/Modules\/Crime.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/Modules\/Floods.php": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -1747,6 +2516,24 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/Modules\/Module.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/Modules\/PlanningApplication.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/Modules\/PlanningApplication.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/Modules\/Point.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/Modules\/Point.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
