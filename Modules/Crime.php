@@ -10,7 +10,6 @@ class Crime extends Module {
         $this->url .= '?$where=month>%272014-08-01%27%20AND%20month<%272014-11-01%27%20AND%20within_circle(location,'.$long.','.$lat.',1000)';
         return json_decode($this->fetch(), true);
     }
-    
 }
 
 ?>
