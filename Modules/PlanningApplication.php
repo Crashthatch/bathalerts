@@ -2,7 +2,8 @@
 
 class PlanningApplication extends Module {
 
-    const MAX_DISTANCE = 0.5;  // In Km
+    //const MAX_DISTANCE = 0.5;  // In Km
+    private $radius = 0.5; // In km
     public $url = "https://data.bathhacked.org/resource/uyh5-eygi.json";
     
     function getData() {
@@ -29,7 +30,7 @@ class PlanningApplication extends Module {
                         $this->point->lat, $this->point->long, "K");
                         
                     // Add only planning applications in our area
-                    if($distance < self::MAX_DISTANCE) {
+                    if($distance < $this->radius) {
                         $relevant[] = array(
                             'casedate'      => $ap->casedate,
                             'casetext'      => $ap->casetext,
@@ -46,7 +47,11 @@ class PlanningApplication extends Module {
             }
         }
         return $relevant;
-    }  
+    }
+
+    function setRadius() {
+        // convert metres to kilometers
+    }
 }
 
 ?>
