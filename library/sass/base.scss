@@ -295,6 +295,22 @@ body.report {
 					width: 27px;
 				}
 			}
+
+			& + p {
+				margin: 0 0 0 0;
+			}
+		}
+
+
+		#flood-risk {
+			margin-bottom: 50px;
+
+			ul li { 
+				&:before {
+					content: "\f071";
+					color: $orange;
+				}
+			}
 		}
 
 		#planning-applications {

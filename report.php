@@ -119,16 +119,18 @@ include_once('header.php');
                             <ul>
                                 <?php 
                                     foreach($floodData['ProximityFloodAlerts'] as $flood) {
-                                        echo '<li>' . $flood['FloodAlert']['Raised'] . ' - Severity: ' . $flood['FloodAlert']['Severity'] . '<br />' . $flood['FloodAlert']['AreaDescription'] . '</li>';
-                                    }
-
-                                    $no_floods = array_filter($floodData['ProximityFloodAlerts']);
-                                    
-                                    if (empty($no_floods)) {
-                                        echo '<p>Sorry, we don\'t have any flood information for your chosen area at present</p>';
+                                        echo '<li><strong>' . date("jS F, Y", strtotime(str_replace("T", " ", $flood['FloodAlert']['Raised']))) . ' - Severity: ' . $flood['FloodAlert']['Severity'] . '</strong><br />' . $flood['FloodAlert']['AreaDescription'] . '</li>';
                                     }
                                 ?>
                             </ul>
+
+                            <?php 
+                                $no_floods = array_filter($floodData['ProximityFloodAlerts']);
+                                    
+                                if (empty($no_floods)) {
+                                    echo '<p>Sorry, we don\'t have any flood information for your chosen area at present</p>';
+                                }
+                            ?>
                         </div>
 
                         <div id="planning-applications" class="fourcol first">
@@ -144,14 +146,16 @@ include_once('header.php');
                                         $plan['locationtext'] . '</span><br /><span><em>' . 
                                         $plan['casetext'] . '</span></em></li>';
                                     }
-
-                                    $no_planning_apps = array_filter($planningData);
-                                    
-                                    if (empty($no_planning_apps)) {
-                                        echo '<p>There haven\'t been any planning applications submitted for your chosen area recently.</p>';
-                                    }
                                 ?>
                             </ul>
+
+                            <?php 
+                                $no_planning_apps = array_filter($planningData);
+                                    
+                                if (empty($no_planning_apps)) {
+                                    echo '<p>There haven\'t been any planning applications submitted for your chosen area recently.</p>';
+                                }
+                            ?>
                         </div>
 
                         <div id="crimes" class="fourcol">
@@ -164,14 +168,16 @@ include_once('header.php');
                                         $crime_nice_name = str_replace("-", " ", $crime['crime_category']);
                                         echo '<li><strong>' . date("F, Y", strtotime(str_replace("T", " ", $crime['month']))) . " " . ' - ' . $crime_nice_name . '</strong><br />' . $crime['street_name'] . '</li>';
                                     }
-
-                                    $no_crimes = array_filter($crimeData);
-                                    
-                                    if (empty($no_crimes)) {
-                                        echo '<p>There haven\'t been any crimes in your area for a while. That\'s good news!</p>';
-                                    }
                                 ?>
                             </ul>
+
+                            <?php
+                                $no_crimes = array_filter($crimeData);
+                                
+                                if (empty($no_crimes)) {
+                                    echo '<p>There haven\'t been any crimes in your area for a while. That\'s good news!</p>';
+                                }
+                            ?>
                         </div>
 
                         <div id="house-sales" class="fourcol last">
@@ -191,6 +197,14 @@ include_once('header.php');
                                     strtolower($houses['postcode']) . '</span></li>';
                                 } ?>
                             </ul>
+
+                            <?php
+                                $no_sales = array_filter($houseData);
+                                
+                                if (empty($no_sales)) {
+                                    echo '<p>There haven\'t been any house sales in your chosen area recently.</p>';
+                                }
+                            ?>
                         </div>
                     </div>
 
