@@ -19,7 +19,7 @@
 
 
         <?php if (isset($pc)) { ?>
-        	<title>BathAlerts for <?php echo $pc; ?></title>
+        	<title>BathAlerts for <?php echo $pc->toString(); ?></title>
         <?php }
 
         else { ?>
