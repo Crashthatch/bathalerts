@@ -41,16 +41,25 @@ crimeIcon     = L.AwesomeMarkers.icon({icon: 'fa-gavel', markerColor: 'blue', pr
 propertyIcon  = L.AwesomeMarkers.icon({icon: 'fa-gbp', markerColor: 'green', prefix: 'fa'}) 
 postcodeIcon  = L.AwesomeMarkers.icon({icon: 'fa-home', markerColor: 'orange', prefix: 'fa'}) 
 
-$.each(crimeData, function(i, feature) {
-	//console.log(crime.location.latitude)
-    crimeMarker[i] = L.marker([feature.location.latitude, feature.location.longitude], {icon: crimeIcon})
-                    .bindPopup('<b>Date: </b>'+feature.month.substring(0, 7)
-                              +'<br><b>Crime Type: </b>'+toTitleCase(feature.crime_category).split('-').join(' ')
-                              +'<br>'+'<b>Location: </b>'+feature.street_name)
-                    .addTo(crimeLayer);
-    bounds.extend([feature.location.latitude, feature.location.longitude]);
-    layersOnMap.push(crimeLayer);
-});
+$.each(floodData.ProximityFloodAlerts, function(i, feature){
+    var floodAlertBounds = [[feature.Bounds.BottomRight.Latitude, feature.Bounds.BottomRight.Longitude], [feature.Bounds.TopLeft.Latitude, feature.Bounds.TopLeft.Longitude]];
+    floodArea[i] =  L.rectangle(floodAlertBounds, {
+                                  color: "#40bced", 
+                                  fillColor: "#40bced", 
+                                  fillOpacity: 0.2, 
+                                  weight: 3, 
+                                  dashArray:10
+                                })
+                      .bindPopup("<b>Environment Agency Flood Alert</b>"
+                                +"<br><b>Date Issued: </b>" + feature.FloodAlert.Raised.substring(0, 10)
+                                +"<br><b>Location: </b>" + feature.FloodAlert.AreaDescription
+                                +"<br><b>Severity: </b>" + feature.FloodAlert.Severity
+                          )
+                      .addTo(floodLayer);
+    layersOnMap.push(floodLayer);
+
+})
+
 
 $.each(planningData, function(i, feature) {
     planningMarker[i] = L.marker([feature.location.latitude, feature.location.longitude], {icon: planningIcon})
@@ -63,6 +72,17 @@ $.each(planningData, function(i, feature) {
                     .addTo(planningLayer);
     bounds.extend([feature.location.latitude, feature.location.longitude]);
     layersOnMap.push(planningLayer);
+});
+
+$.each(crimeData, function(i, feature) {
+  //console.log(crime.location.latitude)
+    crimeMarker[i] = L.marker([feature.location.latitude, feature.location.longitude], {icon: crimeIcon})
+                    .bindPopup('<b>Date: </b>'+feature.month.substring(0, 7)
+                              +'<br><b>Crime Type: </b>'+toTitleCase(feature.crime_category).split('-').join(' ')
+                              +'<br>'+'<b>Location: </b>'+feature.street_name)
+                    .addTo(crimeLayer);
+    bounds.extend([feature.location.latitude, feature.location.longitude]);
+    layersOnMap.push(crimeLayer);
 });
 
 $.each(houseData, function(i, feature) {
@@ -82,24 +102,7 @@ $.each(houseData, function(i, feature) {
     layersOnMap.push(propertyLayer);
 });
 
-$.each(floodData.ProximityFloodAlerts, function(i, feature){
-    var floodAlertBounds = [[feature.Bounds.BottomRight.Latitude, feature.Bounds.BottomRight.Longitude], [feature.Bounds.TopLeft.Latitude, feature.Bounds.TopLeft.Longitude]];
-    floodArea[i] =  L.rectangle(floodAlertBounds, {
-                                  color: "#40bced", 
-                                  fillColor: "#40bced", 
-                                  fillOpacity: 0.2, 
-                                  weight: 3, 
-                                  dashArray:10
-                                })
-                      .bindPopup("<b>Environment Agency Flood Alert</b>"
-                                +"<br><b>Date Issued: </b>" + feature.FloodAlert.Raised.substring(0, 10)
-                                +"<br><b>Location: </b>" + feature.FloodAlert.AreaDescription
-                                +"<br><b>Severity: </b>" + feature.FloodAlert.Severity
-                          )
-                      .addTo(floodLayer);
-    layersOnMap.push(floodLayer);
 
-})
 
 
     var map = L.map('map', {
@@ -131,7 +134,7 @@ $.each(floodData.ProximityFloodAlerts, function(i, feature){
                               }).addTo(drawnItems);
 
     L.control.layers(baseLayers,overlays).addTo(map);
-    var postcodeMarker = L.marker([searchedForPostcode[1],searchedForPostcode[0]], {icon: postcodeIcon, zIndexOffset:999}).bindPopup('Your Postcode').addTo(map);
+    var postcodeMarker = L.marker([searchedForPostcode[1],searchedForPostcode[0]], {icon: postcodeIcon, zIndexOffset:999}).bindPopup('Your postcode').addTo(map);
     map.fitBounds(bounds);
 
 // toggle email/list checkboxes when map layer control is changed.
@@ -195,6 +198,7 @@ $('#custom-search-button').on("click", function(){
 function setCustomRadius(){
    $('.awesome-marker, .leaflet-shadow-pane').css({'opacity':'0.2'});
     postcodeRadius.editing.enable();
+    postcodeMarker.closePopup();
     map.addLayer(drawnItems);
     $('.leaflet-editing-icon').addClass('radiusDragPoints');
 }
@@ -203,8 +207,12 @@ function saveCustomRadius(){
   $('.awesome-marker, .leaflet-shadow-pane').css({'opacity':'1'});
   postcodeRadius.editing.disable();
   map.removeLayer(drawnItems);
-  console.log("Radius of drawn circle: " + Math.round(drawnItems.getLayers()[0]._mRadius))
+  console.log("Radius of drawn circle: " + Math.round(drawnItems.getLayers()[0]._mRadius) + "m around "+drawnItems.getLayers()[0]._latlng.lat+','+drawnItems.getLayers()[0]._latlng.lng)
   $('#user-radius').val(Math.round(drawnItems.getLayers()[0]._mRadius))
+  $('#user-lat-hidden').val(drawnItems.getLayers()[0]._latlng.lat)
+  $('#user-long-hidden').val(drawnItems.getLayers()[0]._latlng.lng)
+  postcodeMarker.setLatLng([drawnItems.getLayers()[0]._latlng.lat,drawnItems.getLayers()[0]._latlng.lng]);
+  postcodeMarker.unbindPopup().bindPopup("Your custom location");
 }
 
 
