@@ -54,7 +54,9 @@ class Point {
         if($this->pCodeString) {
             return $this->pCodeString;
         } else {
-            return "coordinates {$this->lat},{$this->long}";
+            $lat = substr($this->lat, 0, 4) . "...";
+            $lon = substr($this->long, 0, 5) . "...";
+            return "coords $lat $lon";
         }
     }
 }

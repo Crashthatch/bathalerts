@@ -35,22 +35,23 @@ if(isset($_POST['email']) && isset($_POST['user-lat']) &&
 }
 
 $pc = "";
+// Check if we are looking up post code
 if(isset($_GET['pc']) && !isset($_POST['user-long'])) {
     $pc = new Point($_GET['pc']);
     if(!$pc->exists()) {
         header('Location: /index.php?unknownPostcode=1');
     }
+// Check if user has customized point location
+} elseif(isset($_POST['user-long']) && isset($_POST['user-lat'])) {
+    $pc = new Point(array($_POST['user-lat'], $_POST['user-long']));
 } else {
     header('Location: /index.php?noPostcode=1') ;
 }
 
-// Check if user is changing default point
 $rad = 500;
+// Check for custom radius
 if(isset($_POST['radius']) && is_numeric($_POST['radius'])) {
     $rad = $_POST['radius'];
-}
-if(isset($_POST['user-long']) && isset($_POST['user-lat'])) {
-    $pc = array($_POST['user-lat'], $_POST['user-long']);
 }
 
 
