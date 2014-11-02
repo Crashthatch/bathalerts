@@ -88,15 +88,13 @@ include_once('header.php');
                             <label for="planning-applications_check">Planning Applications</label>
 
                             <ul>
-                                <?php 
-                                foreach($planningData as $plan) {
+                                <?php foreach($planningData as $plan) {
                                     echo '<li><strong>' . 
-                                            date("F jS, Y", strtotime(str_replace("T", " ", $plan['casedate']))) . " " .                                  
-                                            $plan['banesstatus'] . '</strong><br /><span>' . 
-                                            $plan['locationtext'] . '</span><br /><span>' . 
-                                            $plan['casetext'] . '</span></li>';
-                                } 
-                                ?>
+                                    date("jS F, Y", strtotime(str_replace("T", " ", $plan['casedate']))) . " " .                                  
+                                    $plan['banesstatus'] . '</strong><br /><span>' . 
+                                    $plan['locationtext'] . '</span><br /><span><em>' . 
+                                    $plan['casetext'] . '</span></em></li>';
+                                } ?>
                             </ul>
                         </div>
 
@@ -105,12 +103,10 @@ include_once('header.php');
                             <label for="crimes_check">Crimes</label>
 
                             <ul>
-                                <?php 
-                                    foreach ($crimeData as $crime) {
-                                        $crime_nice_name = str_replace("-", " ", $crime['crime_category']);
-                                        echo '<li><strong>' . $crime_nice_name . '</strong><br />' . $crime['street_name'] . '</li>';
-                                    }
-                                ?>
+                                <?php foreach ($crimeData as $crime) {
+                                    $crime_nice_name = str_replace("-", " ", $crime['crime_category']);
+                                    echo '<li><strong>' . date("F, Y", strtotime(str_replace("T", " ", $crime['month']))) . " " . ' - ' . $crime_nice_name . '</strong><br />' . $crime['street_name'] . '</li>';
+                                } ?>
                             </ul>
                         </div>
 
@@ -121,24 +117,33 @@ include_once('header.php');
                             <ul>
                                 <?php foreach($houseData as $houses) {
                                     echo '<li><strong>' . 
-                                        $houses['date_of_transfer'] . ' - £' . 
-                                        $houses['price'] . '</strong><br />' . 
-                                        strtolower($houses['secondary_addressable_object_name']) . ', ' . 
-                                        strtolower($houses['locality']) . ', ' . 
-                                        strtolower($houses['district']) . ', <span>' . 
-                                        strtolower($houses['postcode']) . '</span></li>';
+                                    $houses['date_of_transfer'] . ' - £' . 
+                                    $houses['price'] . '</strong><br />' . 
+                                    strtolower($houses['secondary_addressable_object_name']) . ', ' . 
+                                    strtolower($houses['locality']) . ', ' . 
+                                    strtolower($houses['district']) . ', <span>' . 
+                                    strtolower($houses['postcode']) . '</span></li>';
                                 } ?>
                             </ul>
                         </div>
                     </div>
 
                     <div class="form-elements">
-                        <input type="hidden" name="user-lat" id="user-lat-hidden" value="<?php echo $pc->lat; ?>" />
-                        <input type="hidden" name="user-long" id="user-long-hidden" value="<?php echo $pc->long; ?>" />
-                        <input type="email" name="email" placeholder="Sign-up for email alerts" />
-                        <button type="submit" class="btn btn-success">
-                            <i class="fa fa-envelope-o"></i>
-                        </button>
+                        <div>
+                            <h2>Create your Alert</h2>
+
+                            <p>Type your email address and click the mail icon to start your email subscription.<br />
+                            <em>You can unsubscribe at any time using the link at the bottom of your email.</em></p>
+                        </div>
+
+                        <div>
+                            <input type="hidden" name="user-lat" id="user-lat-hidden" value="<?php echo $pc->lat; ?>" />
+                            <input type="hidden" name="user-long" id="user-long-hidden" value="<?php echo $pc->long; ?>" />
+                            <input type="email" name="email" placeholder="Sign-up for email alerts" />
+                            <button type="submit" class="btn btn-success">
+                                <i class="fa fa-envelope-o"></i>
+                            </button>
+                        </div>
                     </div>
                 </form>
             </div>
