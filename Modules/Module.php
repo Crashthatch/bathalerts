@@ -2,41 +2,11 @@
 
 abstract class Module {
 
-    const POSTCODE_REGEX = '/(GIR ?0AA|[A-PR-UWYZ]([0-9]{1,2}|([A-HK-Y][0-9]([0-9ABEHMNPRV-Y])?)|[0-9][A-HJKPS-UW]) ?[0-9][ABD-HJLNP-UW-Z]{2})/';
-    protected static $postCodes = false;
-    protected static $postCode;
-    protected static $postCodeLoc;
+    protected $point;
     private $tkn = "";
 
-    static function initPostcodeList()
-    {
-        $handle = fopen("Postcodes.csv", "r");
-        if ($handle) {
-            while (($line = fgets($handle)) !== false) {
-                $fields = explode(",", $line);
-                $pc = str_replace(" ", "", $fields[0]);
-                self::$postCodes[strtoupper($pc)] =
-                    array(floatval(trim($fields[5])), floatval(trim($fields[6])));
-            }
-        } else {
-            // Error
-        }
-        fclose($handle);
-    }
-
-    function __construct($postCode) {
-        self::$postCode = $postCode;
-        // Load post code locations for the BANES area
-        self::$postCodeLoc = $this->getPostCodeLocation($postCode);
-    }
-
-    static function postcodeExists($pc){
-        if( self::getPostCodeLocation($pc) !== false ){
-            return true;
-        }
-        else{
-            return false;
-        }
+    function __construct($point) {
+        $this->point = $point;
     }
 
     function fetch() {
@@ -50,11 +20,6 @@ abstract class Module {
         );
         $c = stream_context_create($opts);
         return file_get_contents($this->url, false, $c);
-    }
-
-    static function getPostCodeLocation($pc) {
-        $pc = strtoupper(str_replace(" ", "", $pc));
-        return (isset(self::$postCodes[$pc]) ? self::$postCodes[$pc] : false);
     }
 
     // Calculate distance between coordinates
@@ -78,7 +43,5 @@ abstract class Module {
         }
     }
 }
-
-Module::initPostcodeList();
 
 ?>

@@ -1,6 +1,7 @@
 <?php
 
 include "Database.php";
+include "Modules/Point.php";
 include "Modules/Module.php";
 include "Modules/Crime.php";
 include "Modules/PlanningApplication.php";
@@ -22,17 +23,13 @@ if(isset($_POST['email']) && isset($_POST['postcode']) && isset($_POST['crime'])
 
 $pc = "";
 if(isset($_GET['pc'])) {
-    $pc = strtoupper($_GET['pc']);
+    $pc = new Point($_GET['pc']);
+    if(!$pc->exists()) {
+        header('Location: /index.php?unknownPostcode=1');
+    }
 } else {
-    header( 'Location: /index.php?noPostcode=1' ) ;
+    header('Location: /index.php?noPostcode=1') ;
 }
-
-// See if this is a postcode we know about and can geo code.
-if ( !Module::postcodeExists($pc) ){
-    header( 'Location: /index.php?unknownPostcode=1' ) ;
-}
-
-$searchedForPostcodeLocation = Module::getPostCodeLocation($pc);
 
 $pa = new PlanningApplication($pc);
 $planningData = $pa->getData();
@@ -46,17 +43,15 @@ include('header.php');
 ?>
 
     <body class="report">
-
         <header>
             <div class="wrap">
                 <div class="first">
                     <h1>BathAlerts</h1>
                     <h2>Get monthly email alerts about things near you</h2>
                 </div>
-
                 <form method="post" class="last">
                     <input type="email" name="email" placeholder="Sign-up for email alerts" />
-                    <input type="text" name="postcode" id="pc-hidden" value="<?php echo $pc; ?>" />
+                    <input type="text" name="postcode" id="pc-hidden" value="<?php echo $pc->toString(); // This may break if pc is not a post code ?>" />
                     <button type="submit" class="btn btn-success">
                         <i class="fa fa-envelope-o"></i>
                     </button>
@@ -66,7 +61,7 @@ include('header.php');
 
         <section id="map-section">
             <div class="wrap">
-                <h3>Showing information local to <span><?php echo $pc; ?></span><a href="/">Change</a></h3>
+                <h3>Showing information local to <span><?php echo $pc->toString(); ?></span><a href="/">Change</a></h3>
             </div>
 
             <?php if ($pc) { ?>
@@ -76,7 +71,7 @@ include('header.php');
                     var planningData = <?php echo json_encode($planningData); ?>;
                     var houseData = <?php echo json_encode($houseData); ?>;
 
-                    var searchedForPostcode = <?php echo json_encode($searchedForPostcodeLocation); ?>;
+                    var searchedForPostcode = <?php echo json_encode(array($pc->lat, $pc->long)); ?>;
                 </script>
 
                 <div id="map"></div>

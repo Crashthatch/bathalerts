@@ -19,7 +19,7 @@
         <script src="/bower_components/leaflet.awesome-markers/dist/leaflet.awesome-markers.min.js"></script>
 
         <?php if (isset($pc)) { ?>
-        	<title>BathAlerts for <?php echo $pc; ?></title>
+        	<title>BathAlerts for <?php echo $pc->toString(); ?></title>
         <?php }
 
         else { ?>
