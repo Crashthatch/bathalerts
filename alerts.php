@@ -1,6 +1,7 @@
 <?php
 
 include 'Database.php';
+include "Modules/Point.php";
 include "Modules/Module.php";
 include "Modules/Crime.php";
 include "Modules/PlanningApplication.php";
@@ -12,42 +13,69 @@ try {
 
     $res = $conn->query("SELECT * FROM Users");
     while($row = $res->fetch_assoc()) {
-        $pc = $row['PostCode'];
+        $lat = $row['UserLat'];
+        $long = $row['UserLong'];
+        $pc = new Point(Array($lat, $long));
+
+        $radius = $row['Radius'];
         $to = $row['Email'];
         
         // Get data
-        $html = "HTML GOES HERE!";
-        
+        $html = file_get_contents( "email_template.htm" );
+
+        $planningHtml = "";
         if($row['Planning']) {
             $pa = new PlanningApplication($pc);
             $planningData = $pa->getData();
-            foreach($planningData as $pa) {
+            foreach($planningData as $plan) {
                 // Build pa html rows
-                $html .= "";
+                $planningHtml .=  '<li><strong>' .
+                    date("jS F, Y", strtotime(str_replace("T", " ", $plan['casedate']))) . " - " .
+                    $plan['banesstatus'] . '</strong><br /><span>' .
+                    $plan['locationtext'] . '</span><br /><span><em>' .
+                    $plan['casetext'] . '</span></em></li>';
             }
         }
-        
+
+        $html = str_replace( '{{PlanningApplications}}', $planningHtml, $html );
+
+        $crimeHtml = "";
         if($row['Crime']) {
-            $crimeGetter = new Crime($pc);
+            $crimeGetter = new Crime($pc, $radius);
             $crimeData = $crimeGetter->getData();
-            foreach($crimeData as $cd) {
-                // Build cd html rows
-                $html .= "";
+            foreach($crimeData as $crime) {
+                $crime_nice_name = str_replace("-", " ", $crime['crime_category']);
+                $crimeHtml .= '<li><strong>' . date("F, Y", strtotime(str_replace("T", " ", $crime['month']))) . " " . ' - ' . $crime_nice_name . '</strong><br />' . $crime['street_name'] . '</li>';
             }
         }
-        
+
+        $html = str_replace( '{{Crimes}}', $crimeHtml, $html );
+
+        $houseHtml = "";
         if($row['Houses']) {
             $hd = new HousePrice($pc);
             $houseData = $hd->getData();        
-            foreach($houseData as $hd) {
-                // Build hd html rows
-                $html .= "";
+            foreach($houseData as $houses) {
+                $addr = (isset($houses['secondary_addressable_object_name']) ?
+                    $houses['secondary_addressable_object_name'] : "");
+                $houseHtml .= '<li><strong>' .
+                    date("jS F, Y", strtotime(str_replace("T", " ", $houses['date_of_transfer']))) . ' - £' .
+                    number_format($houses['price']) . '</strong><br />' .
+                    ($addr ? ucwords(strtolower($addr)) . ', ' : "") .
+                    ucwords(strtolower($houses['locality'])) . ', ' .
+                    ucwords(strtolower($houses['district'])) . ', <span>' .
+                    strtoupper($houses['postcode']) . '</span></li>';
             }
         }
-        
+
+        $html = str_replace( '{{HouseSales}}', $houseHtml, $html );
+
+        $html = str_replace( '{{lat}}', $lat, $html );
+        $html = str_replace( '{{long}}', $long, $html );
+
         $message = array(
             'html' => $html,
-            'subject' => "Your $pc Alert",
+            'subject' => "Your Bath Alert",
             'from_email' => 'bathalerts@bathhacked.org',
             'from_name' => 'BathAlerts',
             'to' => array(
@@ -59,6 +87,8 @@ try {
             ),
             'headers' => array('Reply-To' => 'bathalerts@bathhacked.org'),
         );
+
+        echo $html;
 
         $async = false;
         $ip_pool = 'Main Pool';
