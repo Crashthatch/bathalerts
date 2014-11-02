@@ -86,10 +86,10 @@ $.each(houseData, function(i, feature) {
     });
 
     var baseLayers = {
-        "Acetate": Acetate_all,
-        "Hydda": Hydda_Full,
-        "Satmen Toner Lite": Stamen_TonerLite,
-        "Aerial": Esri_WorldImagery 
+        //"Acetate": Acetate_all,
+        "Road Map": Hydda_Full,
+        //"Satmen Toner Lite": Stamen_TonerLite,
+        "Satellite Imagery": Esri_WorldImagery 
 
     };
 
@@ -98,24 +98,19 @@ $.each(houseData, function(i, feature) {
         "Planning Applications": planningLayer,
         "Property Sales": propertyLayer
     };
+   var drawnItems = new L.FeatureGroup();
+   var postcodeRadius = L.circle([searchedForPostcode[1],searchedForPostcode[0]], 1000, {
+                                color: 'red', 
+                                fillColor:'red',
+                                fillOpacity: 0.1, 
+                                opacity: 1, 
+                               // dashArray: '20',
+                                zIndexOffset: 9999
+                              }).addTo(drawnItems);
 
     L.control.layers(baseLayers,overlays).addTo(map);
-    var postcodeMarker = L.marker([searchedForPostcode[1],searchedForPostcode[0]], {icon: postcodeIcon, zIndexOffset:999999}).bindPopup('Your Postcode').addTo(map);
+    var postcodeMarker = L.marker([searchedForPostcode[1],searchedForPostcode[0]], {icon: postcodeIcon, zIndexOffset:999}).bindPopup('Your Postcode').addTo(map);
     map.fitBounds(bounds);
-
-// RADIUS MARKER -------------------------------------------------------------------------------------------------------------------------
-    // Initialise the draw control and pass it the FeatureGroup of editable layers
-   /* var drawControl = new L.Control.Draw({
-        draw: false,
-        edit: {
-            featureGroup: drawnItems
-        }
-    });
-    map.addControl(drawControl);
-    */
- // RADIUS MARKER  END-------------------------------------------------------------------------------------------------------------------------  
-
-
 
 // toggle email/list checkboxes when map layer control is changed.
 map.on("overlayadd", function(e) {
@@ -164,27 +159,19 @@ $('#house-sales_check').on('change', function(){
   }
 })
 
-function customRadius(){
-   var drawnItems = new L.FeatureGroup();
-   map.addLayer(drawnItems);
-   var postcodeRadius = L.circle([searchedForPostcode[1],searchedForPostcode[0]], 1000, {
-                                color: 'red', 
-                                fillOpacity: 0, 
-                                opacity: 0.4, 
-                                dashArray: '20'
-                              }).addTo(drawnItems);
+function setCustomRadius(){
+   $('.awesome-marker, .leaflet-shadow-pane').css({'opacity':'0.2'});
     postcodeRadius.editing.enable();
-    
-    map.on('draw:editstop', function (e) {
-        console.log("Radius of drawn circle: " + drawnItems.getLayers()[0]._mRadius)
-    });
-
+    map.addLayer(drawnItems);
+    $('.leaflet-editing-icon').addClass('radiusDragPoints');
 }
 
-
-
-
-
+function saveCustomRadius(){
+  $('.awesome-marker, .leaflet-shadow-pane').css({'opacity':'1'});
+  postcodeRadius.editing.disable();
+  map.removeLayer(drawnItems);
+  console.log("Radius of drawn circle: " + Math.round(drawnItems.getLayers()[0]._mRadius))
+}
 
 
 // functions to clean up popup text

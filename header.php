@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css">
 		<link rel="stylesheet" href="/bower_components/leaflet.awesome-markers/dist/leaflet.awesome-markers.css">
 		<link rel="stylesheet" href="/bower_components/leaflet.draw/dist/leaflet.draw.css">
+		<link rel="stylesheet" href="/library/css/map.css">
 
 		<!-- JS -->
 		<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
