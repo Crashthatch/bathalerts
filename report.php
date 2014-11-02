@@ -17,7 +17,7 @@ if(isset($_POST['email']) && isset($_POST['user-lat']) &&
     $userLat  = $conn->real_escape_string($_POST['user-lat']);
     $userLong = $conn->real_escape_string($_POST['user-long']);
     
-    $houses   = ($_POST['crime'] == 'Yes' ? "TRUE" : "FALSE");
+    $houses   = ($_POST['houses'] == 'Yes' ? "TRUE" : "FALSE");
     $crime    = ($_POST['crime'] == 'Yes' ? "TRUE" : "FALSE");
     $planning = ($_POST['planning'] == 'Yes' ? "TRUE" : "FALSE");
     
@@ -84,7 +84,7 @@ include_once('header.php');
                 <form method="post">
                     <div class="inner-form">
                         <div id="planning-applications" class="fourcol first">
-                            <input type="checkbox" name="planning-applications" id="planning-applications_check" checked>
+                            <input type="checkbox" name="planning" id="planning-applications_check" checked>
                             <label for="planning-applications_check">Planning Applications</label>
 
                             <ul>
@@ -101,7 +101,7 @@ include_once('header.php');
                         </div>
 
                         <div id="crimes" class="fourcol">
-                            <input type="checkbox" name="crimes" id="crimes_check" checked>
+                            <input type="checkbox" name="crime" id="crimes_check" checked>
                             <label for="crimes_check">Crimes</label>
 
                             <ul>
@@ -115,7 +115,7 @@ include_once('header.php');
                         </div>
 
                         <div id="house-sales" class="fourcol last">
-                            <input type="checkbox" name="house-sales" id="house-sales_check" checked>
+                            <input type="checkbox" name="houses" id="house-sales_check" checked>
                             <label for="house-sales_check">House Sales</label>
 
                             <ul>
