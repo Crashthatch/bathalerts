@@ -25,9 +25,9 @@ if(isset($_POST['email']) && isset($_POST['user-lat']) &&
     
     $conn->query(
         "INSERT IGNORE INTO Users " . 
-            "(`Email`, `UserLat`, `UserLong`, `Crime`, `Planning`, `Houses`) " . 
+            "(`Email`, `UserLat`, `UserLong`, `Crime`, `Planning`, `Houses`, `Flooding`) " .
         "VALUES " . 
-            "('$email', '$userLat', '$userLong', $crime, $planning, $houses)");
+            "('$email', '$userLat', '$userLong', $crime, $planning, $houses, $flooding)");
             
     $emailAdded = true;
 }
