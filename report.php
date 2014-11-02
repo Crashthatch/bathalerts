@@ -124,7 +124,7 @@ include_once('header.php');
                                     $addr = (isset($houses['secondary_addressable_object_name']) ? 
                                         $houses['secondary_addressable_object_name'] : "");
                                     echo '<li><strong>' . 
-                                    date("F jS, Y", strtotime(str_replace("T", " ", $houses['date_of_transfer']))) . ' - £' . 
+                                    date("jS F, Y", strtotime(str_replace("T", " ", $houses['date_of_transfer']))) . ' - £' . 
                                     number_format($houses['price']) . '</strong><br />' . 
                                     ($addr ? strtolower($addr) . ', ' : "") . 
                                     strtolower($houses['locality']) . ', ' . 
