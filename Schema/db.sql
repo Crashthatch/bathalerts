@@ -10,8 +10,8 @@ CREATE SCHEMA IF NOT EXISTS `bathalerts` DEFAULT CHARACTER SET utf8 COLLATE utf8
 DROP TABLE IF EXISTS `bathalerts`.`Users`;
 CREATE TABLE IF NOT EXISTS `bathalerts`.`Users` (
   `Email` VARCHAR(100) NOT NULL,
-  `UserLat` FLOAT NOT NULL,
-  `UserLong` FLOAT NOT NULL,
+  `UserLat` VARCHAR(100) NOT NULL,
+  `UserLong` VARCHAR(100) NOT NULL,
   `Crime` TINYINT(1) NOT NULL,
   `Planning` TINYINT(1) NOT NULL,
   `Houses` TINYINT(1) NOT NULL,

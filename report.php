@@ -10,20 +10,19 @@ include "Modules/Floods.php";
 
 // Checking email form
 $emailAdded = false;
+
 if(isset($_POST['email']) && isset($_POST['user-lat']) && 
-        isset($_POST['user-long']) && isset($_POST['crime']) && 
-        isset($_POST['planning']) && isset($_POST['houses']) &&
-        isset($_POST['flooding']) && isset($_POST['radius']) && $_POST['email'] != "") {
+        isset($_POST['user-long']) && isset($_POST['radius']) && $_POST['email'] != "") {
         
     $email    = $conn->real_escape_string($_POST['email']);
     $userLat  = $conn->real_escape_string($_POST['user-lat']);
     $userLong = $conn->real_escape_string($_POST['user-long']);
     $radius   = $conn->real_escape_string($_POST['radius']);
     
-    $houses   = ($_POST['houses'] == 'Yes' ? "TRUE" : "FALSE");
-    $crime    = ($_POST['crime'] == 'Yes' ? "TRUE" : "FALSE");
-    $planning = ($_POST['planning'] == 'Yes' ? "TRUE" : "FALSE");
-    $flooding = ($_POST['flooding'] == 'Yes' ? "TRUE" : "FALSE");
+    $houses   = (isset($_POST['houses']) ? "TRUE" : "FALSE");
+    $crime    = (isset($_POST['crime']) ? "TRUE" : "FALSE");
+    $planning = (isset($_POST['planning']) ? "TRUE" : "FALSE");
+    $flooding = (isset($_POST['flooding']) ? "TRUE" : "FALSE");
     
     $conn->query(
         "INSERT IGNORE INTO Users " . 
