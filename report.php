@@ -93,13 +93,15 @@ include_once('header.php');
                             <label for="planning-applications_check">Planning Applications</label>
 
                             <ul>
-                                <?php foreach($planningData as $plan) {
-                                    echo '<li><strong>' . 
-                                    date("jS F, Y", strtotime(str_replace("T", " ", $plan['casedate']))) . " - " .
-                                    $plan['banesstatus'] . '</strong><br /><span>' . 
-                                    $plan['locationtext'] . '</span><br /><span><em>' . 
-                                    $plan['casetext'] . '</span></em></li>';
-                                } ?>
+                                <?php 
+                                    foreach($planningData as $plan) {
+                                        echo '<li><strong>' . 
+                                            date("jS F, Y", strtotime(str_replace("T", " ", $plan['casedate']))) . " - " .
+                                            $plan['banesstatus'] . '</strong><br /><span>' . 
+                                            $plan['locationtext'] . '</span><br /><span><em>' . 
+                                            $plan['casetext'] . '</span></em></li>';
+                                    } 
+                                ?>
                             </ul>
                         </div>
 
