@@ -104,7 +104,8 @@ include('header.php');
 
                     <ul>
                         <?php foreach ($crimeData as $crime) {
-                            echo '<li>' . $crime['crime_category'] . '<br />' . $crime['street_name'] . '</li>';
+                            $crime_nice_name = str_replace("-", " ", $crime['crime_category']);
+                            echo '<li><strong>' . $crime_nice_name . '</strong><br />' . $crime['street_name'] . '</li>';
                         } ?>
                     </ul>
                 </div>
