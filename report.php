@@ -98,7 +98,7 @@ include_once('header.php');
             <div class="wrap">
                 <div class="subscribe-info">
                     <h3 class="first">Customise your monthly email alerts by ticking the sections on or off below.</h3>
-                    <button class="last">Create Alert</button>
+                    <button class="last"><i class="fa fa-envelope-o"></i> Create Alert</button>
                 </div>
 
                 <form method="post">
