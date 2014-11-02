@@ -36,10 +36,19 @@ var Esri_WorldImagery = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/
  var layersOnMap = [];
  layersOnMap.push(Hydda_Full);
 
+ var clusterLayer = new L.MarkerClusterGroup({
+    maxClusterRadius: 1,
+    spiderfyOnMaxZoom: true, 
+    showCoverageOnHover: false, 
+    zoomToBoundsOnClick: true
+  });
+
 planningIcon  = L.AwesomeMarkers.icon({icon: 'fa-file-text', markerColor: 'red', prefix: 'fa'}) 
 crimeIcon     = L.AwesomeMarkers.icon({icon: 'fa-gavel', markerColor: 'blue', prefix: 'fa'}) 
 propertyIcon  = L.AwesomeMarkers.icon({icon: 'fa-gbp', markerColor: 'green', prefix: 'fa'}) 
 postcodeIcon  = L.AwesomeMarkers.icon({icon: 'fa-home', markerColor: 'orange', prefix: 'fa'}) 
+clusterIcon   = L.AwesomeMarkers.icon({icon: 'fa-home', markerColor: 'purple', prefix: 'fa'}) 
+
 
 $.each(floodData.ProximityFloodAlerts, function(i, feature){
     var floodAlertBounds = [[feature.Bounds.BottomRight.Latitude, feature.Bounds.BottomRight.Longitude], [feature.Bounds.TopLeft.Latitude, feature.Bounds.TopLeft.Longitude]];
@@ -72,6 +81,7 @@ $.each(planningData, function(i, feature) {
                     .addTo(planningLayer);
     bounds.extend([feature.location.latitude, feature.location.longitude]);
     layersOnMap.push(planningLayer);
+    clusterLayer.addLayer(planningLayer);
 });
 
 $.each(crimeData, function(i, feature) {
@@ -83,6 +93,7 @@ $.each(crimeData, function(i, feature) {
                     .addTo(crimeLayer);
     bounds.extend([feature.location.latitude, feature.location.longitude]);
     layersOnMap.push(crimeLayer);
+    clusterLayer.addLayer(crimeLayer);
 });
 
 $.each(houseData, function(i, feature) {
@@ -100,14 +111,22 @@ $.each(houseData, function(i, feature) {
                     .addTo(propertyLayer);
     bounds.extend([feature.location.latitude, feature.location.longitude]);
     layersOnMap.push(propertyLayer);
+    clusterLayer.addLayer(propertyLayer);
 });
 
-
-
+var map = L.map('map',{
+    attributionControl: false
+  }).setView([51.477106,-2.690277], 10);
+  map.addLayer(Hydda_Full);
+  map.addLayer(clusterLayer);
+  //map.addLayers(layersOnMap);
+/*
 
     var map = L.map('map', {
         layers: layersOnMap
     });
+
+    */
 
     var baseLayers = {
         //"Acetate": Acetate_all,
@@ -133,9 +152,10 @@ $.each(houseData, function(i, feature) {
                                 zIndexOffset: 9999
                               }).addTo(drawnItems);
 
-    L.control.layers(baseLayers,overlays).addTo(map);
+    L.control.layers(baseLayers, layersOnMap).addTo(map);
     var postcodeMarker = L.marker([searchedForPostcode[1],searchedForPostcode[0]], {icon: postcodeIcon, zIndexOffset:999}).bindPopup('Your postcode').addTo(map);
     map.fitBounds(bounds);
+   // map.addLayer(clusterLayer);
 
 // toggle email/list checkboxes when map layer control is changed.
 map.on("overlayadd", function(e) {
@@ -213,6 +233,8 @@ function saveCustomRadius(){
   $('#user-long-hidden').val(drawnItems.getLayers()[0]._latlng.lng)
   postcodeMarker.setLatLng([drawnItems.getLayers()[0]._latlng.lat,drawnItems.getLayers()[0]._latlng.lng]);
   postcodeMarker.unbindPopup().bindPopup("Your custom location");
+  //window.location = "/report/" + drawnItems.getLayers()[0]._latlng.lat + ',' + drawnItems.getLayers()[0]._latlng.lng;
+  $('form').submit();
 }
 
 
