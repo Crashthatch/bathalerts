@@ -21,7 +21,6 @@ class PlanningApplication extends Module {
             // If we find the planning permission
             if(isset($matches[0])) {
                 $apl = new Point($matches[0]);
-                //$apl = $this->getPostCodeLocation($matches[0]);
                 
                 // If we can convert it to a location
                 if($apl->exists()) {

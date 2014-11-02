@@ -12,7 +12,8 @@ include "Modules/Floods.php";
 $emailAdded = false;
 if(isset($_POST['email']) && isset($_POST['user-lat']) && 
         isset($_POST['user-long']) && isset($_POST['crime']) && 
-        isset($_POST['planning']) && isset($_POST['houses'])) {
+        isset($_POST['planning']) && isset($_POST['houses']) &&
+        isset($_POST['flooding'])) {
         
     $email    = $conn->real_escape_string($_POST['email']);
     $userLat  = $conn->real_escape_string($_POST['user-lat']);
