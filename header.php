@@ -21,7 +21,7 @@
         <script src="/library/js/scripts.min.js"></script>
 
         <?php if (isset($pc)) { ?>
-        	<title>BathAlerts for <?php echo strtoupper($pc->toString()); ?></title>
+        	<title>BathAlerts for <?php echo $pc->toString(); ?></title>
         <?php }
 
         else { ?>
