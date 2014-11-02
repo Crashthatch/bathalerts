@@ -128,7 +128,7 @@ include_once('header.php');
                                 $no_floods = array_filter($floodData['ProximityFloodAlerts']);
                                     
                                 if (empty($no_floods)) {
-                                    echo '<p>Sorry, we don\'t have any flood information for your chosen area at present</p>';
+                                    echo '<p>Hurrah! There are no floods in your area at the moment.</p>';
                                 }
                             ?>
                         </div>
