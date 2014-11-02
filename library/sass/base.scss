@@ -35,6 +35,16 @@ h2 {
 	text-shadow: 0 1px $text;
 }
 
+.subscribe-info {
+	@extend %clearfix;
+	border-bottom: solid 1px $text;
+	margin-bottom: 30px;
+
+	button {
+		margin-top: 28px;
+	}
+}
+
 form {
 	@extend %clearfix;
 	margin-bottom: 0;

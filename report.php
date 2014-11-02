@@ -75,7 +75,7 @@ include_once('header.php');
                 </div>
 
                 <div class="last">
-                    <h3>Custom search distance</span><a href="">Change</a></h3>
+                    <h3>Custom search distance <a id="custom-search-button">Change</a></h3>
                 </div>
             </div>
 
@@ -95,23 +95,36 @@ include_once('header.php');
 
         <section id="list-section">
             <div class="wrap">
-                <h3>Customise your monthly email alerts by ticking the sections on or off below.</h3>
+                <div class="subscribe-info">
+                    <h3 class="first">Customise your monthly email alerts by ticking the sections on or off below.</h3>
+                    <button class="last">Create Alert</button>
+                </div>
+
                 <form method="post">
                     <div class="inner-form">
+                        <div id="flood-risk" class="clearfix">
+                            <input type="checkbox" name="floods" id="flood-risk_check" checked>
+                            <label for="flood-risk_check">Flood Risk</label>
+
+                            <ul>
+                                <?php foreach($floodData as $flood) {
+                                    echo '<li></li>';
+                                } ?>
+                            </ul>
+                        </div>
+
                         <div id="planning-applications" class="fourcol first">
                             <input type="checkbox" name="planning" id="planning-applications_check" checked>
                             <label for="planning-applications_check">Planning Applications</label>
 
                             <ul>
-                                <?php 
-                                    foreach($planningData as $plan) {
-                                        echo '<li><strong>' . 
-                                            date("jS F, Y", strtotime(str_replace("T", " ", $plan['casedate']))) . " - " .
-                                            $plan['banesstatus'] . '</strong><br /><span>' . 
-                                            $plan['locationtext'] . '</span><br /><span><em>' . 
-                                            $plan['casetext'] . '</span></em></li>';
-                                    } 
-                                ?>
+                                <?php foreach($planningData as $plan) {
+                                    echo '<li><strong>' . 
+                                    date("jS F, Y", strtotime(str_replace("T", " ", $plan['casedate']))) . " - " .
+                                    $plan['banesstatus'] . '</strong><br /><span>' . 
+                                    $plan['locationtext'] . '</span><br /><span><em>' . 
+                                    $plan['casetext'] . '</span></em></li>';
+                                } ?>
                             </ul>
                         </div>
 
