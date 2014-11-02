@@ -18,13 +18,14 @@ echo '<VirtualHost *:80>
 
              <Directory /vagrant/>
                  Options Indexes FollowSymLinks
-                 AllowOverride None
+                 AllowOverride All
                  Require all granted
              </Directory>
      </VirtualHost>' | sudo tee /etc/apache2/sites-available/001-bathalerts.conf
 
 sudo a2dissite 000-default
 sudo a2ensite 001-bathalerts
+sudo a2enmod rewrite
 
 echo '
 display_errors = On
