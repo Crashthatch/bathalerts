@@ -23,18 +23,20 @@ var Esri_WorldImagery = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/
 
 
 
- var crimeLayer = L.layerGroup()
+ var crimeLayer = L.layerGroup();
  var crimeMarker = [];
- var planningLayer = L.layerGroup()
+
+ var planningLayer = L.layerGroup();
  var planningMarker = [];
- var propertyLayer = L.layerGroup()
+
+ var propertyLayer = L.layerGroup();
  var propertyMarker = [];
- var floodLayer = L.layerGroup()
+
+ var floodLayer = L.layerGroup();
  var floodArea = [];
 
  var bounds = new L.LatLngBounds();
  var layersOnMap = [];
- layersOnMap.push(Hydda_Full);
 
  var clusterLayer = new L.MarkerClusterGroup({
     maxClusterRadius: 1,
@@ -53,8 +55,8 @@ clusterIcon   = L.AwesomeMarkers.icon({icon: 'fa-home', markerColor: 'purple', p
 $.each(floodData.ProximityFloodAlerts, function(i, feature){
     var floodAlertBounds = [[feature.Bounds.BottomRight.Latitude, feature.Bounds.BottomRight.Longitude], [feature.Bounds.TopLeft.Latitude, feature.Bounds.TopLeft.Longitude]];
     floodArea[i] =  L.rectangle(floodAlertBounds, {
-                                  color: "#40bced", 
-                                  fillColor: "#40bced", 
+                                  color: "#E0753C", 
+                                  fillColor: "#E0753C", 
                                   fillOpacity: 0.2, 
                                   weight: 3, 
                                   dashArray:10
@@ -115,11 +117,14 @@ $.each(houseData, function(i, feature) {
 });
 
 var map = L.map('map',{
-    attributionControl: false
+    attributionControl: false,
+    maxZoom: 18,
+    layers: Hydda_Full
   }).setView([51.477106,-2.690277], 10);
-  map.addLayer(Hydda_Full);
   map.addLayer(clusterLayer);
-  //map.addLayers(layersOnMap);
+   var dummyCrimeLayer = L.layerGroup().addTo(map);
+   var dummyPlanningLayer = L.layerGroup().addTo(map);
+   var dummyPropertyLayer = L.layerGroup().addTo(map);
 /*
 
     var map = L.map('map', {
@@ -137,9 +142,9 @@ var map = L.map('map',{
     };
 
     var overlays = {
-        "Crimes": crimeLayer,
-        "Planning Applications": planningLayer,
-        "Property Sales": propertyLayer,
+        "Crimes": dummyCrimeLayer,
+        "Planning Applications": dummyPlanningLayer,
+        "Property Sales": dummyPropertyLayer,
         "Flood Alerts": floodLayer
     };
    var drawnItems = new L.FeatureGroup();
@@ -152,31 +157,43 @@ var map = L.map('map',{
                                 zIndexOffset: 9999
                               }).addTo(drawnItems);
 
-    L.control.layers(baseLayers, layersOnMap).addTo(map);
+    L.control.layers(baseLayers, overlays).addTo(map);
     var postcodeMarker = L.marker([searchedForPostcode[1],searchedForPostcode[0]], {icon: postcodeIcon, zIndexOffset:999}).bindPopup('Your postcode').addTo(map);
     map.fitBounds(bounds);
    // map.addLayer(clusterLayer);
 
 // toggle email/list checkboxes when map layer control is changed.
 map.on("overlayadd", function(e) {
-  if (e.layer === crimeLayer) {
+  if (e.layer === dummyCrimeLayer) {
+    clusterLayer.addLayer(crimeLayer);
+    //console.log('dummylayer crime added')
     $('#crimes_check').prop('checked', true);
   }
-  if (e.layer === planningLayer) {
+  if (e.layer === dummyPlanningLayer) {
+    //console.log('dummylayer plan added')
+    clusterLayer.addLayer(planningLayer);
     $('#planning-applications_check').prop('checked', true);
   } 
-  if (e.layer === propertyLayer) {
+  if (e.layer === dummyPropertyLayer) {
+    //console.log('dummylayer prop added')
+    clusterLayer.addLayer(propertyLayer);
     $('#house-sales_check').prop('checked', true);
   } 
 });
 map.on("overlayremove", function(e) {
-  if (e.layer === crimeLayer) {
+  if (e.layer === dummyCrimeLayer) {
+    //console.log('dummylayer crime removed');
+    clusterLayer.removeLayer(crimeLayer);
     $('#crimes_check').prop('checked', false);
   }
-  if (e.layer === planningLayer) {
+  if (e.layer === dummyPlanningLayer) {
+    //console.log('dummylayer planning removed')
+    clusterLayer.removeLayer(planningLayer);
     $('#planning-applications_check').prop('checked', false);
   } 
-  if (e.layer === propertyLayer) {
+  if (e.layer === dummyPropertyLayer) {
+   // console.log('dummylayer property removed')
+    clusterLayer.removeLayer(propertyLayer);
     $('#house-sales_check').prop('checked', false);
   } 
 });
@@ -184,23 +201,30 @@ map.on("overlayremove", function(e) {
 //Change map content when email/list checkboxes are changed
 $('#crimes_check').on('change', function(){
   if ($('#crimes_check').prop('checked')){
-    map.addLayer(crimeLayer)
+    clusterLayer.addLayer(crimeLayer)
   }else{
-    map.removeLayer(crimeLayer)
+    clusterLayer.removeLayer(crimeLayer)
   }
 })
 $('#planning-applications_check').on('change', function(){
   if ($('#planning-applications_check').prop('checked')){
-    map.addLayer(planningLayer)
+    clusterLayer.addLayer(planningLayer)
   }else{
-    map.removeLayer(planningLayer)
+    clusterLayer.removeLayer(planningLayer)
   }
 })
 $('#house-sales_check').on('change', function(){
   if ($('#house-sales_check').prop('checked')){
-    map.addLayer(propertyLayer)
+    clusterLayer.addLayer(propertyLayer)
   }else{
-    map.removeLayer(propertyLayer)
+    clusterLayer.removeLayer(propertyLayer)
+  }
+})
+$('#flood-risk_check').on('change', function(){
+  if ($('#flood-risk_check').prop('checked')){
+    map.addLayer(floodLayer);
+  }else{
+    map.removeLayer(floodLayer);
   }
 })
 
@@ -216,7 +240,8 @@ $('#custom-search-button').on("click", function(){
 })
 
 function setCustomRadius(){
-   $('.awesome-marker, .leaflet-shadow-pane').css({'opacity':'0.2'});
+   //$('.awesome-marker, .leaflet-shadow-pane').css({'opacity':'0.2'});
+    $('.awesome-marker, .leaflet-shadow-pane, .marker-cluster').toggleClass('fade-markers');
     postcodeRadius.editing.enable();
     postcodeMarker.closePopup();
     map.addLayer(drawnItems);
@@ -224,7 +249,8 @@ function setCustomRadius(){
 }
 
 function saveCustomRadius(){
-  $('.awesome-marker, .leaflet-shadow-pane').css({'opacity':'1'});
+  //$('.awesome-marker, .leaflet-shadow-pane').css({'opacity':'1'});
+  $('.awesome-marker, .leaflet-shadow-pane, .marker-cluster').toggleClass('fade-markers');
   postcodeRadius.editing.disable();
   map.removeLayer(drawnItems);
   console.log("Radius of drawn circle: " + Math.round(drawnItems.getLayers()[0]._mRadius) + "m around "+drawnItems.getLayers()[0]._latlng.lat+','+drawnItems.getLayers()[0]._latlng.lng)
