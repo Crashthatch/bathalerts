@@ -215,24 +215,49 @@ body.report {
 					margin-left: -27px;
 					width: 27px;
 				}
+			}
+		}
 
-				strong {
-					text-transform: capitalize;
+		#planning-applications {
+			ul li { 
+				&:before {
+					content: "\f15c";
+					color: #DF0804;
+				}
+
+				span {
+					display: inline-block;
+					padding-top: 5px;
 				}
 			}
 		}
 
-		#planning-applications ul li:before {
-			content: "\f15c";
-			color: #DF0804;
+		#crimes {
+			ul li {
+				strong {
+					text-transform: capitalize;
+				}
+
+				&:before {
+					content: "\f0e3";
+					color: #00A7DA;
+				}
+			}
 		}
 
-		#crimes ul li:before {
-			content: "\f0e3";
-		}
+		#house-sales {
+			ul li {
+				text-transform: capitalize;
 
-		#house-sales ul li:before {
-			content: "\f154";
+				&:before {
+					content: "\f154";
+					color: #54B61E;
+				}
+
+				span {
+					text-transform: uppercase;
+				}
+			}
 		}
 	}
 }
