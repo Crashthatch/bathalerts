@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=1280" />
 
 		<!-- CSS -->
-		<link rel="stylesheet" type="text/css" href="/style.css">
+		<link rel="stylesheet" type="text/css" href="/library/css/style.css">
 		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css">
 		<link rel="stylesheet" href="/bower_components/leaflet.awesome-markers/dist/leaflet.awesome-markers.css">
 		<link rel="stylesheet" href="/bower_components/leaflet.draw/dist/leaflet.draw.css">

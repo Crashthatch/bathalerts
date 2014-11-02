@@ -57,14 +57,6 @@ include('header.php');
                     <h1>BathAlerts</h1>
                     <h2>Get monthly email alerts about things near you</h2>
                 </div>
-                <form method="post" class="last">
-                    <input type="hidden" name="user-lat" id="user-lat-hidden" value="<?php echo $pc->lat; ?>" />
-                    <input type="hidden" name="user-long" id="user-long-hidden" value="<?php echo $pc->long; ?>" />
-                    <input type="email" name="email" placeholder="Sign-up for email alerts" />
-                    <button type="submit" class="btn btn-success">
-                        <i class="fa fa-envelope-o"></i>
-                    </button>
-                </form>
             </div>
         </header>
 
@@ -89,54 +81,69 @@ include('header.php');
         <section id="list-section">
             <div class="wrap">
                 <h3>Customise your monthly email alerts by ticking the sections on or off below.</h3>
+                <form method="post">
+                    <div class="clearfix">
+                        <div id="planning-applications" class="fourcol first">
+                            <input type="checkbox" name="planning-applications" id="planning-applications_check" checked>
+                            <label for="planning-applications_check">Planning Applications</label>
 
-                <div id="planning-applications" class="fourcol first">
-                    <input type="checkbox" name="planning-applications" id="planning-applications_check" checked>
-                    <label for="planning-applications_check">Planning Applications</label>
-                    <ul>
-                        <?php foreach($planningData as $plan) {
-                            echo '<li><strong>' . 
-                                    date("F jS, Y", strtotime(str_replace("T", " ", $plan['casedate']))) . " " .                                  
-                                    $plan['banesstatus'] . '</strong><br /><span>' . 
-                                    $plan['locationtext'] . '</span><br /><span>' . 
-                                    $plan['casetext'] . '</span></li>';
-                        } ?>
-                    </ul>
-                </div>
+                            <ul>
+                                <?php 
+                                foreach($planningData as $plan) {
+                                    echo '<li><strong>' . 
+                                            date("F jS, Y", strtotime(str_replace("T", " ", $plan['casedate']))) . " " .                                  
+                                            $plan['banesstatus'] . '</strong><br /><span>' . 
+                                            $plan['locationtext'] . '</span><br /><span>' . 
+                                            $plan['casetext'] . '</span></li>';
+                                } 
+                                ?>
+                            </ul>
+                        </div>
 
-                <div id="crimes" class="fourcol">
-                    <input type="checkbox" name="crimes" id="crimes_check" checked>
-                    <label for="crimes_check">Crimes</label>
+                        <div id="crimes" class="fourcol">
+                            <input type="checkbox" name="crimes" id="crimes_check" checked>
+                            <label for="crimes_check">Crimes</label>
 
-                    <ul>
-                        <?php 
-                            foreach($crimeData as $crime) {
-                                $crime_nice_name = str_replace("-", " ", $crime['crime_category']);
-                                echo '<li><strong>' . $crime_nice_name . '</strong><br />' . $crime['street_name'] . '</li>';
-                            }
-                        ?>
-                    </ul>
-                </div>
+                            <ul>
+                                <?php 
+                                    foreach ($crimeData as $crime) {
+                                        $crime_nice_name = str_replace("-", " ", $crime['crime_category']);
+                                        echo '<li><strong>' . $crime_nice_name . '</strong><br />' . $crime['street_name'] . '</li>';
+                                    }
+                                ?>
+                            </ul>
+                        </div>
 
-                <div id="house-sales" class="fourcol last">
-                    <input type="checkbox" name="house-sales" id="house-sales_check" checked>
-                    <label for="house-sales_check">House Sales</label>
+                        <div id="house-sales" class="fourcol last">
+                            <input type="checkbox" name="house-sales" id="house-sales_check" checked>
+                            <label for="house-sales_check">House Sales</label>
 
-                    <ul>
-                        <?php foreach($houseData as $houses) {
-                            echo '<li><strong>' . 
-                                $houses['date_of_transfer'] . ' - £' . 
-                                $houses['price'] . '</strong><br />' . 
-                                strtolower($houses['secondary_addressable_object_name']) . ', ' . 
-                                strtolower($houses['locality']) . ', ' . 
-                                strtolower($houses['district']) . ', <span>' . 
-                                strtolower($houses['postcode']) . '</span></li>';
-                        } ?>
-                    </ul>
-                </div>
+                            <ul>
+                                <?php foreach($houseData as $houses) {
+                                    echo '<li><strong>' . 
+                                        $houses['date_of_transfer'] . ' - £' . 
+                                        $houses['price'] . '</strong><br />' . 
+                                        strtolower($houses['secondary_addressable_object_name']) . ', ' . 
+                                        strtolower($houses['locality']) . ', ' . 
+                                        strtolower($houses['district']) . ', <span>' . 
+                                        strtolower($houses['postcode']) . '</span></li>';
+                                } ?>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <input type="hidden" name="user-lat" id="user-lat-hidden" value="<?php echo $pc->lat; ?>" />
+                    <input type="hidden" name="user-long" id="user-long-hidden" value="<?php echo $pc->long; ?>" />
+                    <input type="email" name="email" placeholder="Sign-up for email alerts" />
+                    <button type="submit" class="btn btn-success">
+                        <i class="fa fa-envelope-o"></i>
+                    </button>
+                </form>
             </div>
         </section>
-        <script src="/library/js/map.js"></script>
-        <footer></footer>
+        <footer>
+            <script src="/library/js/map.js"></script>
+            <p class="wrap">BathAlerts 2014. Built using open data and coffee.</p>
+        </footer>
     </body>
 </html>
