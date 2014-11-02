@@ -36,10 +36,17 @@ h2 {
 }
 
 form {
+	@extend %clearfix;
 	margin-bottom: 0;
 
-	&.last {
-		float: right;
+	.inner-form {
+		@extend %clearfix;
+	}
+
+	.form-elements {
+		width: 255px;
+		margin: 0 auto;
+		padding-top: 50px;
 	}
 
 	input[type="text"],
@@ -120,10 +127,12 @@ form {
 
 footer {
 	background: $lightgrey;
-	padding: 10px 0;
+	padding: 75px 0 15px 0;
 
 	p {
 		margin: 0 0 0 0;
+		font-size: 15px;
+		text-align: center;
 	}
 }
 

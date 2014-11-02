@@ -47,7 +47,7 @@ $crimeData = $crimeGetter->getData();
 $hd = new HousePrice($pc);
 $houseData = $hd->getData();
 
-include('header.php');
+include_once('header.php');
 
 ?>
     <body class="report">
@@ -82,7 +82,7 @@ include('header.php');
             <div class="wrap">
                 <h3>Customise your monthly email alerts by ticking the sections on or off below.</h3>
                 <form method="post">
-                    <div class="clearfix">
+                    <div class="inner-form">
                         <div id="planning-applications" class="fourcol first">
                             <input type="checkbox" name="planning-applications" id="planning-applications_check" checked>
                             <label for="planning-applications_check">Planning Applications</label>
@@ -134,18 +134,16 @@ include('header.php');
                         </div>
                     </div>
 
-                    <input type="hidden" name="user-lat" id="user-lat-hidden" value="<?php echo $pc->lat; ?>" />
-                    <input type="hidden" name="user-long" id="user-long-hidden" value="<?php echo $pc->long; ?>" />
-                    <input type="email" name="email" placeholder="Sign-up for email alerts" />
-                    <button type="submit" class="btn btn-success">
-                        <i class="fa fa-envelope-o"></i>
-                    </button>
+                    <div class="form-elements">
+                        <input type="hidden" name="user-lat" id="user-lat-hidden" value="<?php echo $pc->lat; ?>" />
+                        <input type="hidden" name="user-long" id="user-long-hidden" value="<?php echo $pc->long; ?>" />
+                        <input type="email" name="email" placeholder="Sign-up for email alerts" />
+                        <button type="submit" class="btn btn-success">
+                            <i class="fa fa-envelope-o"></i>
+                        </button>
+                    </div>
                 </form>
             </div>
-        </section>
-        <footer>
-            <script src="/library/js/map.js"></script>
-            <p class="wrap">BathAlerts 2014. Built using open data and coffee.</p>
-        </footer>
-    </body>
-</html>
+        </section>        
+
+        <?php include_once('footer.php'); ?>
