@@ -4,7 +4,7 @@
 	    <div class="wrap">
 	    	<header>
 	    		<h1>BathAlerts</h1>
-	    		<h2>Get email notifications about things around you</h2>
+	    		<h2>Get monthly email alerts about things near you</h2>
 	    	</header>
 
 	    	<section id="postcode-form">
